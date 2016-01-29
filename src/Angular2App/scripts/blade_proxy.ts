@@ -1,23 +1,18 @@
 ﻿import {Component, DynamicComponentLoader, Type, ElementRef} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {ComponentProvider} from './componentProvider';
 import {EmptyRoute} from './empty-route';
 
-export class ComponentProvider {
-    path: string;
-    provide: { (module: any): any };
-    routes: any[];
-}
-
-const PROXY_CLASSNAME = 'component-wrapper';
-const PROXY_SELECTOR = `.${PROXY_CLASSNAME}`;
-
-export function componentProxyFactory(provider: ComponentProvider): Type {
+export function bladeProxyFactory(provider: ComponentProvider): Type {
+    if (provider.routes) {
+        provider.routes = [];
+    }
 
     provider.routes.push({ path: '/', name: 'Default', component: EmptyRoute, useAsDefault: true });
 
     @Component({
-        selector: 'component-proxy',
-        templateUrl: './templates/component_proxy.html',
+        selector: 'blade-proxy',
+        templateUrl: './templates/blade.html',
         moduleId: module.id,
         directives: [ROUTER_DIRECTIVES]
     })
@@ -38,7 +33,7 @@ export function componentProxyFactory(provider: ComponentProvider): Type {
     return VirtualComponent;
 }
 
-// hack
+// hack for typescript
 interface System {
     import(name: string): any;
 }

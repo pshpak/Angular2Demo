@@ -8,12 +8,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-var component_proxy_1 = require('./component_proxy');
-var PROXY_CLASSNAME = 'component-wrapper';
-var PROXY_SELECTOR = "." + PROXY_CLASSNAME;
-function componentProxyFactoryOriginal(provider) {
+var router_1 = require('angular2/router');
+var empty_route_1 = require('./empty-route');
+function bladeProxyFactory(provider) {
+    if (provider.routes) {
+        provider.routes = [];
+    }
+    provider.routes.push({ path: '/', name: 'Default', component: empty_route_1.EmptyRoute, useAsDefault: true });
     var VirtualComponent = (function () {
-        function VirtualComponent(el, loader, inj, provider) {
+        function VirtualComponent(el, loader) {
             System.import(provider.path)
                 .then(function (m) {
                 loader.loadIntoLocation(provider.provide(m), el, 'content');
@@ -21,16 +24,17 @@ function componentProxyFactoryOriginal(provider) {
         }
         VirtualComponent = __decorate([
             core_1.Component({
-                selector: 'component-proxy',
-                bindings: [core_1.bind(component_proxy_1.ComponentProvider).toValue(provider)],
-                templateUrl: './templates/component_proxy_original.html',
-                moduleId: module.id
-            }), 
-            __metadata('design:paramtypes', [core_1.ElementRef, core_1.DynamicComponentLoader, core_1.Injector, component_proxy_1.ComponentProvider])
+                selector: 'blade-proxy',
+                templateUrl: './templates/blade.html',
+                moduleId: module.id,
+                directives: [router_1.ROUTER_DIRECTIVES]
+            }),
+            router_1.RouteConfig(provider.routes), 
+            __metadata('design:paramtypes', [core_1.ElementRef, core_1.DynamicComponentLoader])
         ], VirtualComponent);
         return VirtualComponent;
     })();
     return VirtualComponent;
 }
-exports.componentProxyFactoryOriginal = componentProxyFactoryOriginal;
-//# sourceMappingURL=component_proxy_original.js.map
+exports.bladeProxyFactory = bladeProxyFactory;
+//# sourceMappingURL=blade_proxy.js.map
