@@ -8,22 +8,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-var router_1 = require('angular2/router');
-var ChildLevel2 = (function () {
-    function ChildLevel2(loader, elementRef, routeData) {
-        this.routingContent = routeData.data['content'];
-        System.import(routeData.data['path'])
-            .then(function (componentModule) { return componentModule[routeData.data['component']]; })
-            .then(function (e) { return loader.loadIntoLocation(e, elementRef, 'dynamicContent'); });
+var Widget = (function () {
+    function Widget() {
     }
-    ChildLevel2 = __decorate([
+    Widget = __decorate([
         core_1.Component({
-            templateUrl: './templates/child-level-2.html',
-            moduleId: module.id,
+            selector: 'widget',
+            template: "<div>i'm widget 1</div>"
         }), 
-        __metadata('design:paramtypes', [core_1.DynamicComponentLoader, core_1.ElementRef, router_1.RouteData])
-    ], ChildLevel2);
-    return ChildLevel2;
+        __metadata('design:paramtypes', [])
+    ], Widget);
+    return Widget;
 })();
-exports.ChildLevel2 = ChildLevel2;
-//# sourceMappingURL=child-level-2.js.map
+exports.Widget = Widget;
+//# sourceMappingURL=widget.js.map

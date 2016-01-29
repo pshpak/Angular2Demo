@@ -2,6 +2,8 @@
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {ChildLevel1} from './childComponents/child-level-1';
 import {EmptyRoute} from './empty-route';
+import {componentProxyFactory} from './component_proxy';
+import {componentProxyFactoryOriginal} from './component_proxy_original';
 
 @Component({
     selector: 'my-app',
@@ -12,7 +14,24 @@ import {EmptyRoute} from './empty-route';
 
 @RouteConfig([
     { path: '/ChildLevel1/...', name: 'ChildLevel1', component: ChildLevel1 },
-    { path: '/', name: 'Default', component: EmptyRoute, useAsDefault: true }
+    {
+        path: '/ProxyLevel1/...',
+        name: 'ProxyLevel1',
+        component: componentProxyFactory({
+            path: '/appScripts/widget2',
+            provide: m => m.Widget2,
+            routes: [{
+                path: '/ProxyLevel2/',
+                name: 'ProxyLevel2',
+                component: componentProxyFactoryOriginal({
+                    path: '/appScripts/widget3',
+                    provide: m => m.Widget3,
+                    routes: null
+                })
+            }]
+        })
+    },
+   { path: '/', name: 'Default', component: EmptyRoute, useAsDefault: true }
 ])
 
 export class AppComponent { }

@@ -10,7 +10,13 @@ import {EmptyRoute} from '../empty-route';
 })
 
 @RouteConfig([
-    { path: '/ChildLevel2', name: 'ChildLevel2', component: ChildLevel2 },
+        {
+            path: '/ChildLevel2', name: 'ChildLevel2', component: ChildLevel2, data: {
+                content: 'some test content from data',
+                component: "Widget",
+                path: "/appScripts/childComponents/widget"
+            }
+        },
     { path: '/', name: 'Default', component: EmptyRoute, useAsDefault: true }
 ])
 

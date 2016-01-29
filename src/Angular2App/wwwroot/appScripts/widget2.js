@@ -9,30 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
-var child_level_2_1 = require('./child-level-2');
-var empty_route_1 = require('../empty-route');
-var ChildLevel1 = (function () {
-    function ChildLevel1() {
+var Widget2 = (function () {
+    function Widget2() {
     }
-    ChildLevel1 = __decorate([
+    Widget2 = __decorate([
         core_1.Component({
-            templateUrl: './templates/child-level-1.html',
+            selector: 'widget',
+            templateUrl: './templates/widget2.html',
             moduleId: module.id,
             directives: [router_1.ROUTER_DIRECTIVES]
-        }),
-        router_1.RouteConfig([
-            {
-                path: '/ChildLevel2', name: 'ChildLevel2', component: child_level_2_1.ChildLevel2, data: {
-                    content: 'some test content from data',
-                    component: "Widget",
-                    path: "/appScripts/childComponents/widget"
-                }
-            },
-            { path: '/', name: 'Default', component: empty_route_1.EmptyRoute, useAsDefault: true }
-        ]), 
+        }), 
         __metadata('design:paramtypes', [])
-    ], ChildLevel1);
-    return ChildLevel1;
+    ], Widget2);
+    return Widget2;
 })();
-exports.ChildLevel1 = ChildLevel1;
-//# sourceMappingURL=child-level-1.js.map
+exports.Widget2 = Widget2;
+//# sourceMappingURL=widget2.js.map
