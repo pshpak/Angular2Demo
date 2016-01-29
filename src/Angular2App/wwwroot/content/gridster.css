@@ -1,0 +1,154 @@
+﻿.gridster {
+  list-style: none;
+}
+.gridster > ul {
+  height: 100%;
+}
+.gridster > .list.__editing {
+  background: url(../images/grid.png) repeat scroll 0 0;
+}
+.gridster gridster-item,
+.gridster .list-item {
+  /*background: #fbfdfe;
+		cursor: move;
+		padding: 2px;*/
+  position: absolute;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /*-webkit-box-shadow: 0 0 0 2px #dee9f0 inset;
+		box-shadow: 0 0 0 2px #dee9f0 inset;*/
+  line-height: 0 !important;
+  height: auto !important;
+  width: auto !important;
+}
+.gridster .gridster-item-moving {
+  opacity: .7;
+  filter: alpha(opacity=70);
+}
+.gridster gridster-item:hover,
+.gridster .list-item:hover {
+  /*-webkit-box-shadow: 0 0 0 2px #a1c0d4 inset;
+		box-shadow: 0 0 0 2px #a1c0d4 inset;*/
+}
+.gridster .list:not(.__editing) .list-item .customize {
+  background: #a1c0d4;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  left: 0;
+  padding: 3px 10px;
+  position: absolute;
+  text-align: center;
+  top: -22px;
+  z-index: 50;
+}
+.gridster .customize .custom-ico {
+  color: #fff;
+  font-size: 12px;
+}
+.gridster .gridster-preview-holder {
+  background: #dee9f0;
+  border-color: #a1c0d4;
+  border-style: dashed;
+  border-width: 1px;
+}
+.gridster .gridster-cnt,
+.gridster [ng-model="widget"] {
+  overflow: hidden;
+  text-align: center;
+}
+.gridster .gridster-cnt {
+  cursor: pointer;
+  bottom: 10px;
+  left: 10px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.gridster [ng-model="widget"] {
+  height: 100%;
+  width: 100%;
+}
+.gridster .gridster-cnt.__info,
+.gridster .gridster-cnt.__note {
+  cursor: inherit;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
+  top: 2px;
+}
+.gridster .gridster-cnt.__note {
+  cursor: pointer;
+}
+.gridster .gridster-cnt::after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.gridster .gridster-cnt .cnt-inner {
+  display: inline-block;
+  height: auto;
+  line-height: 1.4;
+  margin: -24px 0 0;
+  padding: 0;
+  vertical-align: middle;
+  word-spacing: 0;
+}
+.gridster .image {
+  border: 1px solid #dee9f0;
+  height: 50px;
+  left: 69px;
+  position: absolute;
+  top: 69px;
+  width: 50px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.gridster .image:after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.gridster .image img {
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+}
+.gridster .list-t,
+.gridster .gallery-descr {
+  color: #4c4c4c;
+  font-size: 12px;
+  font-weight: 500;
+  word-spacing: 0;
+}
+.gridster .list-price {
+  color: #43b0e6;
+  font-size: 12px;
+}
+.gridster .list-count {
+  color: #43b0e6;
+  font-size: 22px;
+  font-weight: 300;
+}
+.gridster .list-count + .list-t {
+  font-size: 12px;
+}
+.gridster .list-ico,
+.gridster .gallery-ico,
+.gridster .comment-ico {
+  color: #dee9f0;
+  font-size: 24px;
+}
+.gridster .gallery-ico,
+.gridster .comment-ico {
+  font-size: 48px;
+}
+.gridster .list-item:hover .list-ico,
+.gridster .list-item:hover .gallery-ico,
+.gridster .list-item:hover .comment-ico {
+  color: #a1c0d4;
+}
+/*# sourceMappingURL=gridster.css.map */

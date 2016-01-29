@@ -2,6 +2,9 @@
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {EmptyRoute} from './common/empty-route';
 import {BladeFactory} from './common/blade/blade-factory';
+import {Header} from './common/header/header';
+import {Menu} from './common/menu/menu';
+
 
 var basePath = '/appScripts/';
 
@@ -9,7 +12,7 @@ var basePath = '/appScripts/';
     selector: 'my-app',
     templateUrl: './templates/main.html',
     moduleId: module.id,
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES, Header, Menu]
 })
 
 @RouteConfig([
@@ -19,12 +22,14 @@ var basePath = '/appScripts/';
         component: BladeFactory.getBlade({
             path: basePath + 'parent-child-controls/parent-control',
             provide: m => m.ParentControl,
+            title: "Parent",
             routes: [{
                 path: '/Child/...',
                 name: 'Child',
                 component: BladeFactory.getBlade({
                     path: basePath + 'parent-child-controls/child-control',
                     provide: m => m.ChildControl,
+                    title: 'Child Blade',
                     routes: null
                 })
             }]

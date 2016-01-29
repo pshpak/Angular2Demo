@@ -19,6 +19,9 @@ export class BladeFactory {
         @RouteConfig(config.routes)
 
         class Blade {
+            title = config.title
+            maximized = false
+
             constructor(
                 el: ElementRef,
                 loader: DynamicComponentLoader
@@ -27,6 +30,14 @@ export class BladeFactory {
                     .then(m => {
                         loader.loadIntoLocation(config.provide(m), el, 'content');
                     });
+            }
+
+            maximize() {
+                this.maximized = true;
+            }
+
+            minimize() {
+                this.maximized = false;
             }
         }
 

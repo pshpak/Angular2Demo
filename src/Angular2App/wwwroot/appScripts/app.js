@@ -11,6 +11,8 @@ var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
 var empty_route_1 = require('./common/empty-route');
 var blade_factory_1 = require('./common/blade/blade-factory');
+var header_1 = require('./common/header/header');
+var menu_1 = require('./common/menu/menu');
 var basePath = '/appScripts/';
 var AppComponent = (function () {
     function AppComponent() {
@@ -20,7 +22,7 @@ var AppComponent = (function () {
             selector: 'my-app',
             templateUrl: './templates/main.html',
             moduleId: module.id,
-            directives: [router_1.ROUTER_DIRECTIVES]
+            directives: [router_1.ROUTER_DIRECTIVES, header_1.Header, menu_1.Menu]
         }),
         router_1.RouteConfig([
             {
@@ -29,12 +31,14 @@ var AppComponent = (function () {
                 component: blade_factory_1.BladeFactory.getBlade({
                     path: basePath + 'parent-child-controls/parent-control',
                     provide: function (m) { return m.ParentControl; },
+                    title: "Parent",
                     routes: [{
                             path: '/Child/...',
                             name: 'Child',
                             component: blade_factory_1.BladeFactory.getBlade({
                                 path: basePath + 'parent-child-controls/child-control',
                                 provide: function (m) { return m.ChildControl; },
+                                title: 'Child Blade',
                                 routes: null
                             })
                         }]

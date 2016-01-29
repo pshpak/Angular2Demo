@@ -3,5 +3,6 @@
 export class BladeConfig {
     path: string;
     provide: { (module: any): any };
+    title: string;
     routes: RouteDefinition[];
 }

@@ -1,0 +1,32 @@
+﻿/*Base Colors*/
+/*Chrome*/
+/*Typography Styles*/
+/*Data Management*/
+/*Images*/
+* {
+  margin: 0;
+  outline: none;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  background: #3b3b3b;
+  color: #3b3b3b;
+  font-size: 100%;
+  line-height: 1.4;
+}
+.clearfix:after {
+  clear: both;
+  content: '';
+  display: block;
+  font-size: 0;
+}
+body::selection,
+.btn::selection {
+  background: none;
+}
+/*# sourceMappingURL=reset.css.map */

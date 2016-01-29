@@ -1,0 +1,77 @@
+﻿/*Base Colors*/
+/*Chrome*/
+/*Typography Styles*/
+/*Data Management*/
+/*Images*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /*tr {
+
+		td {
+			height: 30px !important;
+			padding-right: 15px !important;
+		}
+	}*/
+}
+table thead tr {
+  border-bottom: 1px solid #a9a9a9;
+}
+table thead th {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: left;
+  border-bottom: 1px solid #a9a9a9;
+  padding: 18px 0 8px 0;
+}
+table thead th:first-child {
+  padding-left: 20px;
+}
+table thead th:last-child {
+  padding-right: 20px;
+}
+table tbody td {
+  padding: 0;
+  height: 30px;
+}
+table tbody td .status.active {
+  display: block;
+  height: 14px;
+  background: url('images/complete.png') center no-repeat;
+}
+table tbody td .checkbox,
+table tbody td .radio {
+  margin: 5px 0;
+  height: 20px;
+}
+table tbody td .checkbox label,
+table tbody td .radio label {
+  margin: 0;
+}
+table tbody td:first-child {
+  padding-left: 20px;
+}
+table tbody td:last-child {
+  padding-right: 20px;
+}
+.table-striped tbody tr {
+  /*&:nth-child(odd) {
+
+				background-color: @Color-background;
+			}
+			&:nth-child(even) {
+
+				background-color: #fff;
+			}*/
+}
+.table-striped tbody tr td {
+  border-bottom: 1px solid #a9a9a9;
+}
+.table-borders tbody tr td {
+  border-right: 1px solid #a9a9a9;
+}
+.table-borders tbody tr td:last-child {
+  border-right: none;
+}
+/*# sourceMappingURL=table.css.map */
