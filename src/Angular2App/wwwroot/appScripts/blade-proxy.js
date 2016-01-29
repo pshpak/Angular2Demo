@@ -11,7 +11,7 @@ var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
 var empty_route_1 = require('./empty-route');
 function bladeProxyFactory(provider) {
-    if (provider.routes) {
+    if (!provider.routes) {
         provider.routes = [];
     }
     provider.routes.push({ path: '/', name: 'Default', component: empty_route_1.EmptyRoute, useAsDefault: true });
@@ -37,4 +37,4 @@ function bladeProxyFactory(provider) {
     return VirtualComponent;
 }
 exports.bladeProxyFactory = bladeProxyFactory;
-//# sourceMappingURL=blade_proxy.js.map
+//# sourceMappingURL=blade-proxy.js.map

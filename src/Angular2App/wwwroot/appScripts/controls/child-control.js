@@ -8,17 +8,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-var Widget = (function () {
-    function Widget() {
+var ChildControl = (function () {
+    function ChildControl() {
     }
-    Widget = __decorate([
+    ChildControl = __decorate([
         core_1.Component({
-            selector: 'widget',
-            template: "<div>i'm widget 1</div>"
+            selector: 'child-control',
+            templateUrl: './templates/child-control.html',
+            moduleId: module.id,
         }), 
         __metadata('design:paramtypes', [])
-    ], Widget);
-    return Widget;
+    ], ChildControl);
+    return ChildControl;
 })();
-exports.Widget = Widget;
-//# sourceMappingURL=widget.js.map
+exports.ChildControl = ChildControl;
+//# sourceMappingURL=child-control.js.map

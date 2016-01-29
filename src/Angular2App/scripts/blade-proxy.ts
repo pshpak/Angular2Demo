@@ -4,10 +4,9 @@ import {ComponentProvider} from './componentProvider';
 import {EmptyRoute} from './empty-route';
 
 export function bladeProxyFactory(provider: ComponentProvider): Type {
-    if (provider.routes) {
+    if (!provider.routes) {
         provider.routes = [];
     }
-
     provider.routes.push({ path: '/', name: 'Default', component: EmptyRoute, useAsDefault: true });
 
     @Component({

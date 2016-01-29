@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
 var empty_route_1 = require('./empty-route');
-var child_level_1_1 = require('./childComponents/child-level-1');
+var blade_proxy_1 = require('./blade-proxy');
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -22,24 +22,23 @@ var AppComponent = (function () {
             directives: [router_1.ROUTER_DIRECTIVES]
         }),
         router_1.RouteConfig([
-            { path: '/ChildLevel1/...', name: 'ChildLevel1', component: child_level_1_1.ChildLevel1 },
-            //{
-            //    path: '/ProxyLevel1/...',
-            //    name: 'ProxyLevel1',
-            //    component: componentProxyFactory({
-            //        path: '/appScripts/widget2',
-            //        provide: m => m.Widget2,
-            //        routes: [{
-            //            path: '/ProxyLevel2/',
-            //            name: 'ProxyLevel2',
-            //            component: componentProxyFactoryOriginal({
-            //                path: '/appScripts/widget3',
-            //                provide: m => m.Widget3,
-            //                routes: null
-            //            })
-            //        }]
-            //    })
-            //},
+            {
+                path: '/Parent/...',
+                name: 'Parent',
+                component: blade_proxy_1.bladeProxyFactory({
+                    path: '/appScripts/controls/parent-control',
+                    provide: function (m) { return m.ParentControl; },
+                    routes: [{
+                            path: '/Child/...',
+                            name: 'Child',
+                            component: blade_proxy_1.bladeProxyFactory({
+                                path: '/appScripts/controls/child-control',
+                                provide: function (m) { return m.ChildControl; },
+                                routes: null
+                            })
+                        }]
+                })
+            },
             { path: '/', name: 'Default', component: empty_route_1.EmptyRoute, useAsDefault: true }
         ]), 
         __metadata('design:paramtypes', [])
