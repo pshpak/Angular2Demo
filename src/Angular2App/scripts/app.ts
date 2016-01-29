@@ -1,7 +1,9 @@
 ﻿import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
-import {EmptyRoute} from './empty-route';
-import {bladeProxyFactory} from './blade-proxy';
+import {EmptyRoute} from './common/empty-route';
+import {BladeFactory} from './common/blade/blade-factory';
+
+var basePath = '/appScripts/';
 
 @Component({
     selector: 'my-app',
@@ -14,14 +16,14 @@ import {bladeProxyFactory} from './blade-proxy';
     {
         path: '/Parent/...',
         name: 'Parent',
-        component: bladeProxyFactory({
-            path: '/appScripts/controls/parent-control',
+        component: BladeFactory.getBlade({
+            path: basePath + 'parent-child-controls/parent-control',
             provide: m => m.ParentControl,
             routes: [{
                 path: '/Child/...',
                 name: 'Child',
-                component: bladeProxyFactory({
-                    path: '/appScripts/controls/child-control',
+                component: BladeFactory.getBlade({
+                    path: basePath + 'parent-child-controls/child-control',
                     provide: m => m.ChildControl,
                     routes: null
                 })

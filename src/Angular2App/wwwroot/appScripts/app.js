@@ -9,8 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
-var empty_route_1 = require('./empty-route');
-var blade_proxy_1 = require('./blade-proxy');
+var empty_route_1 = require('./common/empty-route');
+var blade_factory_1 = require('./common/blade/blade-factory');
+var basePath = '/appScripts/';
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -25,14 +26,14 @@ var AppComponent = (function () {
             {
                 path: '/Parent/...',
                 name: 'Parent',
-                component: blade_proxy_1.bladeProxyFactory({
-                    path: '/appScripts/controls/parent-control',
+                component: blade_factory_1.BladeFactory.getBlade({
+                    path: basePath + 'parent-child-controls/parent-control',
                     provide: function (m) { return m.ParentControl; },
                     routes: [{
                             path: '/Child/...',
                             name: 'Child',
-                            component: blade_proxy_1.bladeProxyFactory({
-                                path: '/appScripts/controls/child-control',
+                            component: blade_factory_1.BladeFactory.getBlade({
+                                path: basePath + 'parent-child-controls/child-control',
                                 provide: function (m) { return m.ChildControl; },
                                 routes: null
                             })
