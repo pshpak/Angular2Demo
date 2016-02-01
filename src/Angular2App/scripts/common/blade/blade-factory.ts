@@ -11,7 +11,7 @@ export class BladeFactory {
         config.routes.push({ path: '/', name: 'Default', component: EmptyRoute, useAsDefault: true });
 
         @Component({
-            selector: 'blade-proxy',
+            selector: 'au-blade',
             templateUrl: './templates/blade.html',
             moduleId: module.id,
             directives: [ROUTER_DIRECTIVES]

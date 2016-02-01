@@ -9,7 +9,7 @@ import {Menu} from './common/menu/menu';
 var basePath = '/appScripts/';
 
 @Component({
-    selector: 'my-app',
+    selector: 'au-app',
     templateUrl: './templates/main.html',
     moduleId: module.id,
     directives: [ROUTER_DIRECTIVES, Header, Menu]

@@ -35,7 +35,7 @@ var BladeFactory = (function () {
             };
             Blade = __decorate([
                 core_1.Component({
-                    selector: 'blade-proxy',
+                    selector: 'au-blade',
                     templateUrl: './templates/blade.html',
                     moduleId: module.id,
                     directives: [router_1.ROUTER_DIRECTIVES]

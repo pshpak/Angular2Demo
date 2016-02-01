@@ -1,0 +1,53 @@
+﻿@import 'variables';
+
+au-main-menu {
+	display: block;
+	height: 100%;
+	width: @Width-main-navbar;
+	font-family: @Font-family-segoe;
+	text-transform: uppercase;
+	background: @Color-sidenav-background;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	float: left;
+
+	ul {
+		list-style: none;
+	}
+
+	.menu-item {
+		text-align: center;
+		min-height: 70px;
+		padding-bottom: 0;
+		padding-left: 0;
+		padding-top: 0;
+		text-indent: 0;
+
+		.menu-link {
+			color: #ffffff;
+			display: block;
+			font-size: 9px;
+			padding: 16px 0;
+			position: relative;
+
+			&:hover, &.__selected {
+				background-color: @Color-sidenav-hover;
+				border-right: 2px solid @Color-page-background;
+				margin-right: -2px;
+			}
+
+			.menu-ico {
+				display: block;
+				font-size: 24px;
+				height: 20px;
+				margin: 0 auto 6px;
+
+				&.home-icon {
+					width: 18px;
+					height: 20px;
+					background: @Image-home-icon center no-repeat;
+				}
+			}
+		}
+	}
+}

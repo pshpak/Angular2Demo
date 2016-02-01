@@ -1,10 +1,8 @@
-<nav class="nav-bar">
-	<ul class="menu bar">
-		<li class="menu-item" *ngFor="#menuItem of menuItems" [routerLink]="['./' + menuItem.name]">
-			<a class="menu-link">
-				<span class="menu-ico" [ngClass]="menuItem.icon"></span>
-				<span class="name">{{menuItem.title}}</span>
-			</a>
-		</li>
-	</ul>
-</nav>
+<ul>
+	<li class="menu-item" *ngFor="#menuItem of menuItems" [routerLink]="['./' + menuItem.name]">
+		<a class="menu-link">
+			<span class="menu-ico" [ngClass]="menuItem.icon"></span>
+			<span>{{menuItem.title}}</span>
+		</a>
+	</li>
+</ul>

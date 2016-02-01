@@ -19,7 +19,7 @@ var AppComponent = (function () {
     }
     AppComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
+            selector: 'au-app',
             templateUrl: './templates/main.html',
             moduleId: module.id,
             directives: [router_1.ROUTER_DIRECTIVES, header_1.Header, menu_1.Menu]

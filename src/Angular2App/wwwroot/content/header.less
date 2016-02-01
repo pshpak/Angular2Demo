@@ -1,0 +1,91 @@
+﻿@import 'variables';
+
+au-header {
+	display: block;
+	height: @Height-main-header;
+	background-color: @Color-topnav-background;
+	font-family: @Font-family-segoe;
+	font-weight: lighter;
+	overflow: hidden;
+
+	.navbar-logo {
+		text-indent: -9999px;
+		width: 213px;
+		height: @Height-main-header;
+		background: url('images/logo.png') left 0 no-repeat;
+		display: block;
+		margin: 0 25px;
+	}
+
+	.toolbar {
+
+		.search {
+			border-left: 1px solid @Color-topnav-borders;
+			border-right: 1px solid @Color-topnav-borders;
+			height: @Height-main-header - 2px;
+			width: 400px;
+			padding-left: 16px;
+			background-color: @Color-topnav-search-background;
+
+			input {
+				background-color: transparent;
+				border: none;
+				color: #fff;
+				padding: (@Height-main-header - 20px)/2 0;
+				width: 86%;
+				height: 20px;
+				display: inline;
+				box-sizing: content-box;
+				-moz-box-sizing: content-box;
+				-webkit-box-sizing: content-box;
+
+				&::-webkit-input-placeholder {
+					color: @Color-topnav-icons;
+				}
+
+				&:-moz-placeholder {
+					color: @Color-topnav-icons;
+				}
+
+				&::-moz-placeholder {
+					color: @Color-topnav-icons;
+				}
+
+				&:-ms-input-placeholder {
+					color: @Color-topnav-icons;
+				}
+			}
+		}
+
+		.toolbar-icon {
+			height: 15px;
+			width: 15px;
+			cursor: pointer;
+			display: inline-block;
+			margin: (@Height-main-header - 15px)/2;
+			background: @Image-toolbar-icon;
+
+			&.search-icon {
+				background-position: left;
+			}
+
+			&.support-icon {
+				background-position: center;
+			}
+
+			&.message-icon {
+				background-position: right;
+			}
+		}
+	}
+
+	.avatar {
+		height: @Height-main-header;
+		width: @Height-main-header;
+		background-color: @Color-secondary;
+
+		&.default {
+			background: @Image-avatar-default center no-repeat;
+		}
+	}
+}

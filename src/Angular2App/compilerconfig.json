@@ -1,0 +1,26 @@
+﻿[
+  {
+    "outputFile": "wwwroot/content/styles.css",
+    "inputFile": "wwwroot/content/styles.less"
+  },
+  {
+    "outputFile": "wwwroot/content/main.css",
+    "inputFile": "wwwroot/content/main.less"
+  },
+  {
+    "outputFile": "wwwroot/content/mixins.css",
+    "inputFile": "wwwroot/content/mixins.less"
+  },
+  {
+    "outputFile": "wwwroot/content/navbar.css",
+    "inputFile": "wwwroot/content/navbar.less"
+  },
+  {
+    "outputFile": "wwwroot/content/header.css",
+    "inputFile": "wwwroot/content/header.less"
+  },
+  {
+    "outputFile": "wwwroot/content/blade.css",
+    "inputFile": "wwwroot/content/blade.less"
+  }
+]

@@ -1,25 +1,23 @@
-﻿<div class="blade" [ngClass]="{'blade-maximized': maximized}">
+﻿<section class="blade" [ngClass]="{'blade-maximized': maximized}">
 	<header class="blade-head">
-		<div class="blade-status">
-		</div>
-		<div class="blade-nav">
-			<ul class="menu __inline">
-				<li class="menu-item action __minimize" (click)="minimize()" *ngIf="maximized">
+		<section class="blade-nav">
+			<ul class="menu">
+				<li class="menu-item __minimize" (click)="minimize()" *ngIf="maximized">
 				</li>
-				<li class="menu-item action __maximize" (click)="maximize()" *ngIf="!maximized">
+				<li class="menu-item __maximize" (click)="maximize()" *ngIf="!maximized">
 				</li>
-				<li class="menu-item action __close" [routerLink]="['../Default']">
+				<li class="menu-item __close" [routerLink]="['../Default']">
 				</li>
 			</ul>
-		</div>
-		<div class="blade-t">
+		</section>
+		<section class="blade-t">
 			<p class="blade-t_head">
 				{{title}}
 			</p>
-		</div>
+		</section>
 	</header>
-	<div class="blade-container">
+	<div class="blade-content">
 		<a #content></a>
 	</div>
-</div>
+</section>
 <router-outlet></router-outlet>

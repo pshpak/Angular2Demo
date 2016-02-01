@@ -1,13 +1,8 @@
-<div class="cnt-wrapper">
-	<au-header></au-header>
-	<div class="cnt-container">
-		<au-main-menu></au-main-menu>
-		<article class="cnt" role="main">
-			<div class="cnt-inner">
-				<router-outlet></router-outlet>
-			</div>
-		</article>
-	</div>
-</div>
-
+<au-header></au-header>
+<main class="clearfix">
+	<au-main-menu></au-main-menu>
+	<section id="main-content">
+		<router-outlet></router-outlet>
+	</section>
+</main>
 

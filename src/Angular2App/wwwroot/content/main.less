@@ -1,0 +1,34 @@
+﻿@import 'variables';
+@import 'mixins';
+
+au-app {
+	width: 100%;
+	height:100%;
+	display: block;
+}
+
+main {
+	.calc-remaining-heigth(@Height-main-header);
+}
+
+#main-content {
+	.calc-remaining-width(@Width-main-navbar);
+	height: 100%;
+	overflow-y: hidden;
+	overflow-x: auto;
+	white-space: nowrap;
+	word-spacing: -4px;
+	float: left;
+
+	-ms-scrollbar-arrow-color: @Color-tertiary;
+	-ms-scrollbar-face-color: @Color-tertiary;
+	-ms-scrollbar-shadow-color: @Color-tertiary;
+	-ms-scrollbar-track-color: @Color-background-widget;
+
+	&::-webkit-scrollbar-track-piece {
+		background: @Color-background-widget;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: @Color-tertiary;
+	}
+}
