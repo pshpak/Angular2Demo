@@ -1,7 +1,7 @@
 ﻿import {Component, DynamicComponentLoader, ElementRef} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
-import {BladeConfig} from './blade-config';
-import {EmptyRoute} from '../empty-route';
+import {BladeConfig} from './bladeConfig';
+import {EmptyRoute} from '../emptyRoute';
 
 export class BladeFactory {
     static getBlade(config: BladeConfig) {

@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
-var empty_route_1 = require('../empty-route');
+var emptyRoute_1 = require('../emptyRoute');
 var BladeFactory = (function () {
     function BladeFactory() {
     }
@@ -17,7 +17,7 @@ var BladeFactory = (function () {
         if (!config.routes) {
             config.routes = [];
         }
-        config.routes.push({ path: '/', name: 'Default', component: empty_route_1.EmptyRoute, useAsDefault: true });
+        config.routes.push({ path: '/', name: 'Default', component: emptyRoute_1.EmptyRoute, useAsDefault: true });
         var Blade = (function () {
             function Blade(el, loader) {
                 this.title = config.title;
@@ -50,4 +50,4 @@ var BladeFactory = (function () {
     return BladeFactory;
 })();
 exports.BladeFactory = BladeFactory;
-//# sourceMappingURL=blade-factory.js.map
+//# sourceMappingURL=bladeFactory.js.map

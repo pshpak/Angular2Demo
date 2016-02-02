@@ -1,5 +1,6 @@
 ﻿import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES, Router} from 'angular2/router';
+import {MenuService} from './menuService';
 
 @Component({
     selector: 'au-main-menu',
@@ -9,11 +10,29 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 })
 
 export class Menu {
-    menuItems = [
-        {
-            icon: 'home-icon',
-            title: 'Home',
-            name: 'Parent'
-        }
-    ];
+    menuItems: any[];
+    currentItem: string;
+
+    constructor(private menuService: MenuService, private router: Router) {
+        this.menuItems = menuService.menuItems;
+        this.currentItem = '';
+
+        router.subscribe((value) => {
+            if (!value) {
+                this.currentItem = null;
+                return;
+            }
+
+            var pathParts = value.split('/');
+            if (!pathParts || !pathParts.length) {
+                this.currentItem = null;
+                return;
+            }
+
+            var root = pathParts[0];
+            if (this.currentItem != root) {
+                this.currentItem = root;
+            }
+        });
+    }
 }

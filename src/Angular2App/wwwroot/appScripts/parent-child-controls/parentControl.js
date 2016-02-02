@@ -8,16 +8,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-var EmptyRoute = (function () {
-    function EmptyRoute() {
+var router_1 = require('angular2/router');
+var ParentControl = (function () {
+    function ParentControl() {
     }
-    EmptyRoute = __decorate([
+    ParentControl = __decorate([
         core_1.Component({
-            template: ''
+            selector: 'parent-control',
+            templateUrl: './templates/parent-control.html',
+            moduleId: module.id,
+            directives: [router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
-    ], EmptyRoute);
-    return EmptyRoute;
+    ], ParentControl);
+    return ParentControl;
 })();
-exports.EmptyRoute = EmptyRoute;
-//# sourceMappingURL=empty-route.js.map
+exports.ParentControl = ParentControl;
+//# sourceMappingURL=parentControl.js.map

@@ -9,15 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
+var menuService_1 = require('./menuService');
 var Menu = (function () {
-    function Menu() {
-        this.menuItems = [
-            {
-                icon: 'home-icon',
-                title: 'Home',
-                name: 'Parent'
+    function Menu(menuService, router) {
+        var _this = this;
+        this.menuService = menuService;
+        this.router = router;
+        this.menuItems = menuService.menuItems;
+        this.currentItem = '';
+        router.subscribe(function (value) {
+            if (!value) {
+                _this.currentItem = null;
+                return;
             }
-        ];
+            var pathParts = value.split('/');
+            if (!pathParts || !pathParts.length) {
+                _this.currentItem = null;
+                return;
+            }
+            var root = pathParts[0];
+            if (_this.currentItem != root) {
+                _this.currentItem = root;
+            }
+        });
     }
     Menu = __decorate([
         core_1.Component({
@@ -26,7 +40,7 @@ var Menu = (function () {
             moduleId: module.id,
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [menuService_1.MenuService, router_1.Router])
     ], Menu);
     return Menu;
 })();

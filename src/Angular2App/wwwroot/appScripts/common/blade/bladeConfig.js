@@ -4,4 +4,4 @@ var BladeConfig = (function () {
     return BladeConfig;
 })();
 exports.BladeConfig = BladeConfig;
-//# sourceMappingURL=blade-config.js.map
+//# sourceMappingURL=bladeConfig.js.map

@@ -8,20 +8,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-var router_1 = require('angular2/router');
-var ParentControl = (function () {
-    function ParentControl() {
+var MenuService = (function () {
+    function MenuService() {
+        this.menuItems = [];
     }
-    ParentControl = __decorate([
-        core_1.Component({
-            selector: 'parent-control',
-            templateUrl: './templates/parent-control.html',
-            moduleId: module.id,
-            directives: [router_1.ROUTER_DIRECTIVES]
-        }), 
+    MenuService.prototype.addMenuItem = function (item) {
+        if (!this.menuItems) {
+            this.menuItems = [];
+        }
+        this.menuItems.push(item);
+    };
+    MenuService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], ParentControl);
-    return ParentControl;
+    ], MenuService);
+    return MenuService;
 })();
-exports.ParentControl = ParentControl;
-//# sourceMappingURL=parent-control.js.map
+exports.MenuService = MenuService;
+//# sourceMappingURL=menuService.js.map

@@ -1,6 +1,6 @@
 <ul>
-	<li class="menu-item" *ngFor="#menuItem of menuItems" [routerLink]="['./' + menuItem.name]">
-		<a class="menu-link">
+	<li class="menu-item" *ngFor="#menuItem of menuItems" [routerLink]="['./' + menuItem.routeName]">
+		<a class="menu-link" [class.__selected]="menuItem.routeName == currentItem">
 			<span class="menu-ico" [ngClass]="menuItem.icon"></span>
 			<span>{{menuItem.title}}</span>
 		</a>

@@ -9,44 +9,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
-var empty_route_1 = require('./common/empty-route');
-var blade_factory_1 = require('./common/blade/blade-factory');
 var header_1 = require('./common/header/header');
 var menu_1 = require('./common/menu/menu');
-var basePath = '/appScripts/';
+var menuService_1 = require('./common/menu/menuService');
+var appRouteConfig_1 = require('./appRouteConfig');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(menuService) {
+        this.menuService = menuService;
+        this.initMainMenuItems();
     }
+    AppComponent.prototype.initMainMenuItems = function () {
+        this.menuService.addMenuItem({
+            icon: 'home-icon',
+            title: 'Home',
+            routeName: 'Parent'
+        });
+        this.menuService.addMenuItem({
+            icon: 'home-icon',
+            title: 'Home 2',
+            routeName: 'Parent2'
+        });
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'au-app',
             templateUrl: './templates/main.html',
             moduleId: module.id,
-            directives: [router_1.ROUTER_DIRECTIVES, header_1.Header, menu_1.Menu]
+            directives: [router_1.ROUTER_DIRECTIVES, header_1.Header, menu_1.Menu],
+            providers: [menuService_1.MenuService]
         }),
-        router_1.RouteConfig([
-            {
-                path: '/Parent/...',
-                name: 'Parent',
-                component: blade_factory_1.BladeFactory.getBlade({
-                    path: basePath + 'parent-child-controls/parent-control',
-                    provide: function (m) { return m.ParentControl; },
-                    title: "Parent",
-                    routes: [{
-                            path: '/Child/...',
-                            name: 'Child',
-                            component: blade_factory_1.BladeFactory.getBlade({
-                                path: basePath + 'parent-child-controls/child-control',
-                                provide: function (m) { return m.ChildControl; },
-                                title: 'Child Blade',
-                                routes: null
-                            })
-                        }]
-                })
-            },
-            { path: '/', name: 'Default', component: empty_route_1.EmptyRoute, useAsDefault: true }
-        ]), 
-        __metadata('design:paramtypes', [])
+        router_1.RouteConfig(appRouteConfig_1.AppRouteConfig.getRoutes()), 
+        __metadata('design:paramtypes', [menuService_1.MenuService])
     ], AppComponent);
     return AppComponent;
 })();
