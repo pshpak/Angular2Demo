@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-var breadcrumb_1 = require('../breadcrumb/breadcrumb');
+var Breadcrumb_1 = require('../breadcrumb/Breadcrumb');
 var Header = (function () {
     function Header() {
     }
@@ -16,11 +16,11 @@ var Header = (function () {
         core_1.Component({
             selector: 'au-header',
             templateUrl: '/templates/common/header/header.html',
-            directives: [breadcrumb_1.Breadcrumb]
+            directives: [Breadcrumb_1.Breadcrumb]
         }), 
         __metadata('design:paramtypes', [])
     ], Header);
     return Header;
 })();
 exports.Header = Header;
-//# sourceMappingURL=header.js.map
+//# sourceMappingURL=Header.js.map

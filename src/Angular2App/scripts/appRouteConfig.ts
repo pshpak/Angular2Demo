@@ -1,5 +1,5 @@
-﻿import {EmptyRoute} from './common/emptyRoute';
-import {BladeFactory} from './common/blade/bladeFactory';
+﻿import {EmptyRoute} from './common/EmptyRoute';
+import {BladeFactory} from './common/blade/BladeFactory';
 
 export class AppRouteConfig {
     static getRoutes() {
@@ -10,14 +10,14 @@ export class AppRouteConfig {
                 path: '/Parent/...',
                 name: 'Parent',
                 component: BladeFactory.getBlade({
-                    componentPath: basePath + 'hellowWorld/parentControl',
+                    componentPath: basePath + 'helloWorld/ParentControl',
                     provide: m => m.ParentControl,
                     title: "Parent",
                     routes: [{
                         path: '/Child/...',
                         name: 'Child',
                         component: BladeFactory.getBlade({
-                            componentPath: basePath + 'hellowWorld/childControl',
+                            componentPath: basePath + 'helloWorld/ChildControl',
                             provide: m => m.ChildControl,
                             title: 'Child Blade',
                             routes: null
@@ -29,7 +29,7 @@ export class AppRouteConfig {
                 path: '/Parent2/...',
                 name: 'Parent2',
                 component: BladeFactory.getBlade({
-                    componentPath: basePath + 'hellowWorld/childControl',
+                    componentPath: basePath + 'helloWorld/ChildControl',
                     provide: m => m.ChildControl,
                     title: 'Parent 2 Blade',
                     routes: null

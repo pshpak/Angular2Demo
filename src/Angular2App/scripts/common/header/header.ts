@@ -1,5 +1,5 @@
 ﻿import {Component} from 'angular2/core';
-import {Breadcrumb} from '../breadcrumb/breadcrumb';
+import {Breadcrumb} from '../breadcrumb/Breadcrumb';
 
 @Component({
     selector: 'au-header',

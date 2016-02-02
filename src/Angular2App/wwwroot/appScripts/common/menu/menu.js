@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
-var menuService_1 = require('./menuService');
+var MenuService_1 = require('./MenuService');
 var Menu = (function () {
     function Menu(menuService, router) {
         var _this = this;
@@ -39,9 +39,9 @@ var Menu = (function () {
             templateUrl: '/templates/common/menu/menu.html',
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [menuService_1.MenuService, router_1.Router])
+        __metadata('design:paramtypes', [MenuService_1.MenuService, router_1.Router])
     ], Menu);
     return Menu;
 })();
 exports.Menu = Menu;
-//# sourceMappingURL=menu.js.map
+//# sourceMappingURL=Menu.js.map

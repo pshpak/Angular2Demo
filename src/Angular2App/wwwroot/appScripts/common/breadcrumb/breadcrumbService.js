@@ -35,4 +35,4 @@ var BreadcrumbService = (function () {
     return BreadcrumbService;
 })();
 exports.BreadcrumbService = BreadcrumbService;
-//# sourceMappingURL=breadcrumbService.js.map
+//# sourceMappingURL=BreadcrumbService.js.map

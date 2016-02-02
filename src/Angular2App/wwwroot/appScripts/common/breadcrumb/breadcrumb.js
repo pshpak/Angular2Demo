@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-var breadcrumbService_1 = require('./breadcrumbService');
+var BreadcrumbService_1 = require('./BreadcrumbService');
 var Breadcrumb = (function () {
     function Breadcrumb(breadcrumbService) {
         this.blades = breadcrumbService.blades;
@@ -18,9 +18,9 @@ var Breadcrumb = (function () {
             selector: 'au-breadcrumb',
             templateUrl: '/templates/common/breadcrumb/breadcrumb.html'
         }), 
-        __metadata('design:paramtypes', [breadcrumbService_1.BreadcrumbService])
+        __metadata('design:paramtypes', [BreadcrumbService_1.BreadcrumbService])
     ], Breadcrumb);
     return Breadcrumb;
 })();
 exports.Breadcrumb = Breadcrumb;
-//# sourceMappingURL=breadcrumb.js.map
+//# sourceMappingURL=Breadcrumb.js.map

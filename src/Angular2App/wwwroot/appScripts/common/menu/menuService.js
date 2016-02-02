@@ -25,4 +25,4 @@ var MenuService = (function () {
     return MenuService;
 })();
 exports.MenuService = MenuService;
-//# sourceMappingURL=menuService.js.map
+//# sourceMappingURL=MenuService.js.map

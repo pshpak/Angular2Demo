@@ -1,9 +1,9 @@
 ﻿import {Component, DynamicComponentLoader, ElementRef, provide, OnInit, OnDestroy} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
-import {BladeConfig} from './bladeConfig';
-import {IBlade} from './IBlade';
-import {EmptyRoute} from '../emptyRoute';
-import {BreadcrumbService} from '../breadcrumb/breadcrumbService';
+import {IBlade } from './IBlade';
+import {BladeConfig} from './BladeConfig';
+import {EmptyRoute} from '../EmptyRoute';
+import {BreadcrumbService} from '../breadcrumb/BreadcrumbService';
 declare var System: any;
 declare var $: any;
 

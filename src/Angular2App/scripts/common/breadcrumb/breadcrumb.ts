@@ -1,6 +1,6 @@
 ﻿import {Component} from 'angular2/core';
-import {BreadcrumbService} from './breadcrumbService';
 import {IBlade} from '../blade/IBlade'
+import {BreadcrumbService} from './BreadcrumbService';
 
 @Component({
     selector: 'au-breadcrumb',

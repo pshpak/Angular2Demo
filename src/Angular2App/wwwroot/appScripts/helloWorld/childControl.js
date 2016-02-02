@@ -21,4 +21,4 @@ var ChildControl = (function () {
     return ChildControl;
 })();
 exports.ChildControl = ChildControl;
-//# sourceMappingURL=childControl.js.map
+//# sourceMappingURL=ChildControl.js.map

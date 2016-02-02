@@ -4,4 +4,4 @@ var MenuItem = (function () {
     return MenuItem;
 })();
 exports.MenuItem = MenuItem;
-//# sourceMappingURL=menuItem.js.map
+//# sourceMappingURL=MenuItem.js.map

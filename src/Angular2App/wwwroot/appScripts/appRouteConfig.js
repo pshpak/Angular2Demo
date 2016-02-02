@@ -1,5 +1,5 @@
-var emptyRoute_1 = require('./common/emptyRoute');
-var bladeFactory_1 = require('./common/blade/bladeFactory');
+var EmptyRoute_1 = require('./common/EmptyRoute');
+var BladeFactory_1 = require('./common/blade/BladeFactory');
 var AppRouteConfig = (function () {
     function AppRouteConfig() {
     }
@@ -9,15 +9,15 @@ var AppRouteConfig = (function () {
             {
                 path: '/Parent/...',
                 name: 'Parent',
-                component: bladeFactory_1.BladeFactory.getBlade({
-                    componentPath: basePath + 'hellowWorld/parentControl',
+                component: BladeFactory_1.BladeFactory.getBlade({
+                    componentPath: basePath + 'helloWorld/ParentControl',
                     provide: function (m) { return m.ParentControl; },
                     title: "Parent",
                     routes: [{
                             path: '/Child/...',
                             name: 'Child',
-                            component: bladeFactory_1.BladeFactory.getBlade({
-                                componentPath: basePath + 'hellowWorld/childControl',
+                            component: BladeFactory_1.BladeFactory.getBlade({
+                                componentPath: basePath + 'helloWorld/ChildControl',
                                 provide: function (m) { return m.ChildControl; },
                                 title: 'Child Blade',
                                 routes: null
@@ -28,17 +28,17 @@ var AppRouteConfig = (function () {
             {
                 path: '/Parent2/...',
                 name: 'Parent2',
-                component: bladeFactory_1.BladeFactory.getBlade({
-                    componentPath: basePath + 'hellowWorld/childControl',
+                component: BladeFactory_1.BladeFactory.getBlade({
+                    componentPath: basePath + 'helloWorld/ChildControl',
                     provide: function (m) { return m.ChildControl; },
                     title: 'Parent 2 Blade',
                     routes: null
                 })
             },
-            { path: '/', name: 'Default', component: emptyRoute_1.EmptyRoute, useAsDefault: true }
+            { path: '/', name: 'Default', component: EmptyRoute_1.EmptyRoute, useAsDefault: true }
         ];
     };
     return AppRouteConfig;
 })();
 exports.AppRouteConfig = AppRouteConfig;
-//# sourceMappingURL=appRouteConfig.js.map
+//# sourceMappingURL=AppRouteConfig.js.map

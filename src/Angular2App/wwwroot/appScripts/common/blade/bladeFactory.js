@@ -9,9 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
-var bladeConfig_1 = require('./bladeConfig');
-var emptyRoute_1 = require('../emptyRoute');
-var breadcrumbService_1 = require('../breadcrumb/breadcrumbService');
+var BladeConfig_1 = require('./BladeConfig');
+var EmptyRoute_1 = require('../EmptyRoute');
+var BreadcrumbService_1 = require('../breadcrumb/BreadcrumbService');
 var BladeFactory = (function () {
     function BladeFactory() {
     }
@@ -19,7 +19,7 @@ var BladeFactory = (function () {
         if (!bladeConfiguration.routes) {
             bladeConfiguration.routes = [];
         }
-        bladeConfiguration.routes.push({ path: '/', name: 'Default', component: emptyRoute_1.EmptyRoute, useAsDefault: true });
+        bladeConfiguration.routes.push({ path: '/', name: 'Default', component: EmptyRoute_1.EmptyRoute, useAsDefault: true });
         var Blade = (function () {
             function Blade(breadcrumbService, config, loader, el) {
                 this.breadcrumbService = breadcrumbService;
@@ -52,10 +52,10 @@ var BladeFactory = (function () {
                     selector: 'au-blade',
                     templateUrl: '/templates/common/blade/blade.html',
                     directives: [router_1.ROUTER_DIRECTIVES],
-                    providers: [core_1.provide(bladeConfig_1.BladeConfig, { useValue: bladeConfiguration })]
+                    providers: [core_1.provide(BladeConfig_1.BladeConfig, { useValue: bladeConfiguration })]
                 }),
                 router_1.RouteConfig(bladeConfiguration.routes), 
-                __metadata('design:paramtypes', [breadcrumbService_1.BreadcrumbService, bladeConfig_1.BladeConfig, core_1.DynamicComponentLoader, core_1.ElementRef])
+                __metadata('design:paramtypes', [BreadcrumbService_1.BreadcrumbService, BladeConfig_1.BladeConfig, core_1.DynamicComponentLoader, core_1.ElementRef])
             ], Blade);
             return Blade;
         })();
@@ -64,4 +64,4 @@ var BladeFactory = (function () {
     return BladeFactory;
 })();
 exports.BladeFactory = BladeFactory;
-//# sourceMappingURL=bladeFactory.js.map
+//# sourceMappingURL=BladeFactory.js.map

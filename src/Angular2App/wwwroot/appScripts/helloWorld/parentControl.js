@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
-var bladeConfig_1 = require('../common/blade/bladeConfig');
+var BladeConfig_1 = require('../common/blade/BladeConfig');
 var ParentControl = (function () {
     function ParentControl(config) {
         console.log(config);
@@ -20,9 +20,9 @@ var ParentControl = (function () {
             templateUrl: '/templates/helloWorld/parentControl.html',
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [bladeConfig_1.BladeConfig])
+        __metadata('design:paramtypes', [BladeConfig_1.BladeConfig])
     ], ParentControl);
     return ParentControl;
 })();
 exports.ParentControl = ParentControl;
-//# sourceMappingURL=parentControl.js.map
+//# sourceMappingURL=ParentControl.js.map

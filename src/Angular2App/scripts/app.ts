@@ -1,10 +1,10 @@
 ﻿import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
-import {Header} from './common/header/header';
-import {Menu} from './common/menu/menu';
-import {MenuService} from './common/menu/menuService';
-import {BreadcrumbService} from './common/breadcrumb/breadcrumbService';
-import {AppRouteConfig} from './appRouteConfig';
+import {Header} from './common/header/Header';
+import {BreadcrumbService} from './common/breadcrumb/BreadcrumbService';
+import {Menu} from './common/menu/Menu';
+import {MenuService} from './common/menu/MenuService';
+import {AppRouteConfig} from './AppRouteConfig';
 
 @Component({
     selector: 'au-app',
