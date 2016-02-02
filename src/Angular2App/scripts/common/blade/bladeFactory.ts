@@ -1,32 +1,36 @@
-﻿import {Component, DynamicComponentLoader, ElementRef} from 'angular2/core';
+﻿import {Component, DynamicComponentLoader, ElementRef, provide} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {BladeConfig} from './bladeConfig';
 import {EmptyRoute} from '../emptyRoute';
+declare var System: any;
 
 export class BladeFactory {
-    static getBlade(config: BladeConfig) {
-        if (!config.routes) {
-            config.routes = [];
+
+    static getBlade(bladeConfiguration: BladeConfig) {
+        if (!bladeConfiguration.routes) {
+            bladeConfiguration.routes = [];
         }
-        config.routes.push({ path: '/', name: 'Default', component: EmptyRoute, useAsDefault: true });
+        bladeConfiguration.routes.push({ path: '/', name: 'Default', component: EmptyRoute, useAsDefault: true });
 
         @Component({
             selector: 'au-blade',
             templateUrl: './templates/blade.html',
             moduleId: module.id,
-            directives: [ROUTER_DIRECTIVES]
+            directives: [ROUTER_DIRECTIVES],
+            providers: [provide(BladeConfig, { useValue: bladeConfiguration })]
         })
-        @RouteConfig(config.routes)
+        @RouteConfig(bladeConfiguration.routes)
 
         class Blade {
-            title = config.title
-            maximized = false
+            title: string;
+            maximized: boolean;
 
-            constructor(
-                el: ElementRef,
-                loader: DynamicComponentLoader
-            ) {
-                System.import(config.path)
+            constructor(config: BladeConfig, el: ElementRef, loader: DynamicComponentLoader) {
+
+                this.title = config.title
+                this.maximized = false
+
+                System.import(config.componentPath)
                     .then(m => {
                         loader.loadIntoLocation(config.provide(m), el, 'content');
                     });
@@ -44,10 +48,3 @@ export class BladeFactory {
         return Blade;
     }
 }
-
-// hack for typescript
-interface System {
-    import(name: string): any;
-}
-
-declare var System: System;

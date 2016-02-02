@@ -1,7 +1,7 @@
 ﻿import {RouteDefinition} from 'angular2/router';
 
 export class BladeConfig {
-    path: string;
+    componentPath: string;
     provide: { (module: any): any };
     title: string;
     routes: RouteDefinition[];

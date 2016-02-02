@@ -9,8 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
+var bladeConfig_1 = require('../common/blade/bladeConfig');
 var ParentControl = (function () {
-    function ParentControl() {
+    function ParentControl(config) {
+        console.log(config);
     }
     ParentControl = __decorate([
         core_1.Component({
@@ -19,7 +21,7 @@ var ParentControl = (function () {
             moduleId: module.id,
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [bladeConfig_1.BladeConfig])
     ], ParentControl);
     return ParentControl;
 })();

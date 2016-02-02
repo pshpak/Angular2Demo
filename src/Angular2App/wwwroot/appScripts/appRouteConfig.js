@@ -10,14 +10,14 @@ var AppRouteConfig = (function () {
                 path: '/Parent/...',
                 name: 'Parent',
                 component: bladeFactory_1.BladeFactory.getBlade({
-                    path: basePath + 'parent-child-controls/parentControl',
+                    componentPath: basePath + 'parent-child-controls/parentControl',
                     provide: function (m) { return m.ParentControl; },
                     title: "Parent",
                     routes: [{
                             path: '/Child/...',
                             name: 'Child',
                             component: bladeFactory_1.BladeFactory.getBlade({
-                                path: basePath + 'parent-child-controls/childControl',
+                                componentPath: basePath + 'parent-child-controls/childControl',
                                 provide: function (m) { return m.ChildControl; },
                                 title: 'Child Blade',
                                 routes: null
@@ -29,7 +29,7 @@ var AppRouteConfig = (function () {
                 path: '/Parent2/...',
                 name: 'Parent2',
                 component: bladeFactory_1.BladeFactory.getBlade({
-                    path: basePath + 'parent-child-controls/childControl',
+                    componentPath: basePath + 'parent-child-controls/childControl',
                     provide: function (m) { return m.ChildControl; },
                     title: 'Parent 2 Blade',
                     routes: null

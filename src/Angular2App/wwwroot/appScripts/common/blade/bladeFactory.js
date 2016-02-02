@@ -9,20 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
+var bladeConfig_1 = require('./bladeConfig');
 var emptyRoute_1 = require('../emptyRoute');
 var BladeFactory = (function () {
     function BladeFactory() {
     }
-    BladeFactory.getBlade = function (config) {
-        if (!config.routes) {
-            config.routes = [];
+    BladeFactory.getBlade = function (bladeConfiguration) {
+        if (!bladeConfiguration.routes) {
+            bladeConfiguration.routes = [];
         }
-        config.routes.push({ path: '/', name: 'Default', component: emptyRoute_1.EmptyRoute, useAsDefault: true });
+        bladeConfiguration.routes.push({ path: '/', name: 'Default', component: emptyRoute_1.EmptyRoute, useAsDefault: true });
         var Blade = (function () {
-            function Blade(el, loader) {
+            function Blade(config, el, loader) {
                 this.title = config.title;
                 this.maximized = false;
-                System.import(config.path)
+                System.import(config.componentPath)
                     .then(function (m) {
                     loader.loadIntoLocation(config.provide(m), el, 'content');
                 });
@@ -38,10 +39,11 @@ var BladeFactory = (function () {
                     selector: 'au-blade',
                     templateUrl: './templates/blade.html',
                     moduleId: module.id,
-                    directives: [router_1.ROUTER_DIRECTIVES]
+                    directives: [router_1.ROUTER_DIRECTIVES],
+                    providers: [core_1.provide(bladeConfig_1.BladeConfig, { useValue: bladeConfiguration })]
                 }),
-                router_1.RouteConfig(config.routes), 
-                __metadata('design:paramtypes', [core_1.ElementRef, core_1.DynamicComponentLoader])
+                router_1.RouteConfig(bladeConfiguration.routes), 
+                __metadata('design:paramtypes', [bladeConfig_1.BladeConfig, core_1.ElementRef, core_1.DynamicComponentLoader])
             ], Blade);
             return Blade;
         })();
