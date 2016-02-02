@@ -17,8 +17,7 @@ export class BladeFactory {
 
         @Component({
             selector: 'au-blade',
-            templateUrl: './templates/blade.html',
-            moduleId: module.id,
+            templateUrl: '/templates/common/blade/blade.html',
             directives: [ROUTER_DIRECTIVES],
             providers: [provide(BladeConfig, { useValue: bladeConfiguration })]
         })

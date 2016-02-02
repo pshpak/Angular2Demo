@@ -50,8 +50,7 @@ var BladeFactory = (function () {
             Blade = __decorate([
                 core_1.Component({
                     selector: 'au-blade',
-                    templateUrl: './templates/blade.html',
-                    moduleId: module.id,
+                    templateUrl: '/templates/common/blade/blade.html',
                     directives: [router_1.ROUTER_DIRECTIVES],
                     providers: [core_1.provide(bladeConfig_1.BladeConfig, { useValue: bladeConfiguration })]
                 }),

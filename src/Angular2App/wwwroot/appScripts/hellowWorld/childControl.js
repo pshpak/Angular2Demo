@@ -14,7 +14,7 @@ var ChildControl = (function () {
     ChildControl = __decorate([
         core_1.Component({
             selector: 'child-control',
-            templateUrl: './templates/child-control.html',
+            templateUrl: './templates/childControl.html',
             moduleId: module.id,
         }), 
         __metadata('design:paramtypes', [])

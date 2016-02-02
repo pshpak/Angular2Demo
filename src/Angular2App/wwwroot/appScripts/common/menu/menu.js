@@ -36,8 +36,7 @@ var Menu = (function () {
     Menu = __decorate([
         core_1.Component({
             selector: 'au-main-menu',
-            templateUrl: './templates/menu.html',
-            moduleId: module.id,
+            templateUrl: '/templates/common/menu/menu.html',
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [menuService_1.MenuService, router_1.Router])

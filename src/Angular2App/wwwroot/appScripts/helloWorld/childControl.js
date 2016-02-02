@@ -8,19 +8,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-var breadcrumbService_1 = require('./breadcrumbService');
-var Breadcrumb = (function () {
-    function Breadcrumb(breadcrumbService) {
-        this.blades = breadcrumbService.blades;
+var ChildControl = (function () {
+    function ChildControl() {
     }
-    Breadcrumb = __decorate([
+    ChildControl = __decorate([
         core_1.Component({
-            selector: 'au-breadcrumb',
-            templateUrl: '/templates/common/breadcrumb/breadcrumb.html'
+            selector: 'child-control',
+            templateUrl: '/templates/helloWorld/childControl.html',
         }), 
-        __metadata('design:paramtypes', [breadcrumbService_1.BreadcrumbService])
-    ], Breadcrumb);
-    return Breadcrumb;
+        __metadata('design:paramtypes', [])
+    ], ChildControl);
+    return ChildControl;
 })();
-exports.Breadcrumb = Breadcrumb;
-//# sourceMappingURL=breadcrumb.js.map
+exports.ChildControl = ChildControl;
+//# sourceMappingURL=childControl.js.map

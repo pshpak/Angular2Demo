@@ -17,7 +17,7 @@ var ParentControl = (function () {
     ParentControl = __decorate([
         core_1.Component({
             selector: 'parent-control',
-            templateUrl: './templates/parent-control.html',
+            templateUrl: './templates/parentControl.html',
             moduleId: module.id,
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 

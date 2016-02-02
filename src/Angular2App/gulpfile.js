@@ -1,4 +1,4 @@
-﻿/// <binding BeforeBuild='clean' AfterBuild='moveLibs, moveTemplates' />
+﻿/// <binding BeforeBuild='moveLibs'/>
 
 var gulp = require('gulp');
 var rimraf = require('rimraf');
@@ -21,15 +21,8 @@ var libsToMove = [
    paths.libInput + '/angular2/bundles/router.js'
 ];
 
-gulp.task('clean', function (callback) {
-	rimraf(paths.templatesOutput, callback);
-	rimraf(paths.libOutput, callback);
-});
 
 gulp.task('moveLibs', function () {
 	return gulp.src(libsToMove).pipe(gulp.dest(paths.libOutput));
 });
 
-gulp.task('moveTemplates', function () {
-	return gulp.src(paths.templatesInput).pipe(gulp.dest(paths.templatesOutput));
-});

@@ -34,8 +34,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'au-app',
-            templateUrl: './templates/main.html',
-            moduleId: module.id,
+            templateUrl: '/templates/main.html',
             directives: [router_1.ROUTER_DIRECTIVES, header_1.Header, menu_1.Menu],
             providers: [menuService_1.MenuService, breadcrumbService_1.BreadcrumbService]
         }),

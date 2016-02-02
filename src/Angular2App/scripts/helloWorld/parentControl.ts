@@ -4,8 +4,7 @@ import {BladeConfig} from '../common/blade/bladeConfig';
 
 @Component({
     selector: 'parent-control',
-    templateUrl: './templates/parent-control.html',
-    moduleId: module.id,
+    templateUrl: '/templates/helloWorld/parentControl.html',
     directives: [ROUTER_DIRECTIVES]
 })
 

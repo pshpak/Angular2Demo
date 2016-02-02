@@ -3,8 +3,7 @@ import {Breadcrumb} from '../breadcrumb/breadcrumb';
 
 @Component({
     selector: 'au-header',
-    templateUrl: './templates/header.html',
-    moduleId: module.id,
+    templateUrl: '/templates/common/header/header.html',
     directives: [Breadcrumb]
 })
 

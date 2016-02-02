@@ -8,8 +8,7 @@ import {AppRouteConfig} from './appRouteConfig';
 
 @Component({
     selector: 'au-app',
-    templateUrl: './templates/main.html',
-    moduleId: module.id,
+    templateUrl: '/templates/main.html',
     directives: [ROUTER_DIRECTIVES, Header, Menu],
     providers: [MenuService, BreadcrumbService]
 })

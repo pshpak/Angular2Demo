@@ -4,8 +4,7 @@ import {IBlade} from '../blade/IBlade'
 
 @Component({
     selector: 'au-breadcrumb',
-    templateUrl: './templates/breadcrumb.html',
-    moduleId: module.id,
+    templateUrl: '/templates/common/breadcrumb/breadcrumb.html'
 })
 
 export class Breadcrumb {

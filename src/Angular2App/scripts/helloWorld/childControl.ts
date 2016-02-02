@@ -2,8 +2,7 @@
 
 @Component({
     selector: 'child-control',
-    templateUrl: './templates/child-control.html',
-    moduleId: module.id,
+    templateUrl: '/templates/helloWorld/childControl.html',
 })
 
 export class ChildControl {

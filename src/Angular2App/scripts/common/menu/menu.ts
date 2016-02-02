@@ -4,8 +4,7 @@ import {MenuService} from './menuService';
 
 @Component({
     selector: 'au-main-menu',
-    templateUrl: './templates/menu.html',
-    moduleId: module.id,
+    templateUrl: '/templates/common/menu/menu.html',
     directives: [ROUTER_DIRECTIVES]
 })
 

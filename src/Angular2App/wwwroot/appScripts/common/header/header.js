@@ -15,8 +15,7 @@ var Header = (function () {
     Header = __decorate([
         core_1.Component({
             selector: 'au-header',
-            templateUrl: './templates/header.html',
-            moduleId: module.id,
+            templateUrl: '/templates/common/header/header.html',
             directives: [breadcrumb_1.Breadcrumb]
         }), 
         __metadata('design:paramtypes', [])
