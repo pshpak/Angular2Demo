@@ -12,7 +12,7 @@ var MenuService = (function () {
     function MenuService() {
         this.menuItems = [];
     }
-    MenuService.prototype.addMenuItem = function (item) {
+    MenuService.prototype.addItem = function (item) {
         if (!this.menuItems) {
             this.menuItems = [];
         }

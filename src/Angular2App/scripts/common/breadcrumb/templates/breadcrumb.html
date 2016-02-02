@@ -1,0 +1,8 @@
+﻿<ul>
+	<template ngFor #blade [ngForOf]="blades" #last="last">
+		<li (click)="blade.focus()">
+			<span class="action">{{blade.title}}</span>
+		</li>
+		<li class="__divider" *ngIf="!last"></li>
+	</template>
+</ul>

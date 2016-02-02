@@ -1,0 +1,28 @@
+﻿@import 'variables';
+
+au-breadcrumb {
+	display: block;
+	padding: 15px 0;
+	font-size: @Font-size-smaller;
+	font-weight: normal;
+
+	ul {
+		list-style: none;
+		word-spacing: -4px;
+
+		li {
+			word-spacing: 0;
+			display: inline-block;
+			vertical-align: top;
+			margin-top: 2px;
+
+			&.__divider {
+				width: 6px;
+				height: 11px;
+				background: @Image-arrow-right-light center no-repeat;
+				opacity: 0.7;
+				margin: 5px 10px;
+			}
+		}
+	}
+}

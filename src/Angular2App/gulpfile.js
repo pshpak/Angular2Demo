@@ -15,6 +15,7 @@ var paths = {
 var libsToMove = [
    paths.libInput + '/angular2/bundles/angular2-polyfills.js',
    paths.libInput + '/systemjs/dist/system.js',
+   paths.libInput + '/jquery/dist/jquery.js',
    paths.libInput + '/rxjs/bundles/Rx.js',
    paths.libInput + '/angular2/bundles/angular2.js',
    paths.libInput + '/angular2/bundles/router.js'

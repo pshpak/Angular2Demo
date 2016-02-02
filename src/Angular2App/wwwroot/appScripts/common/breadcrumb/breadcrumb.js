@@ -8,20 +8,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-var breadcrumb_1 = require('../breadcrumb/breadcrumb');
-var Header = (function () {
-    function Header() {
+var breadcrumbService_1 = require('./breadcrumbService');
+var Breadcrumb = (function () {
+    function Breadcrumb(breadcrumbService) {
+        this.blades = breadcrumbService.blades;
     }
-    Header = __decorate([
+    Breadcrumb = __decorate([
         core_1.Component({
-            selector: 'au-header',
-            templateUrl: './templates/header.html',
+            selector: 'au-breadcrumb',
+            templateUrl: './templates/breadcrumb.html',
             moduleId: module.id,
-            directives: [breadcrumb_1.Breadcrumb]
         }), 
-        __metadata('design:paramtypes', [])
-    ], Header);
-    return Header;
+        __metadata('design:paramtypes', [breadcrumbService_1.BreadcrumbService])
+    ], Breadcrumb);
+    return Breadcrumb;
 })();
-exports.Header = Header;
-//# sourceMappingURL=header.js.map
+exports.Breadcrumb = Breadcrumb;
+//# sourceMappingURL=breadcrumb.js.map

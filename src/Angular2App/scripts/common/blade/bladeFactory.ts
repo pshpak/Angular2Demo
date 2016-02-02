@@ -1,8 +1,11 @@
-﻿import {Component, DynamicComponentLoader, ElementRef, provide} from 'angular2/core';
+﻿import {Component, DynamicComponentLoader, ElementRef, provide, OnInit, OnDestroy} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {BladeConfig} from './bladeConfig';
+import {IBlade} from './IBlade';
 import {EmptyRoute} from '../emptyRoute';
+import {BreadcrumbService} from '../breadcrumb/breadcrumbService';
 declare var System: any;
+declare var $: any;
 
 export class BladeFactory {
 
@@ -21,11 +24,12 @@ export class BladeFactory {
         })
         @RouteConfig(bladeConfiguration.routes)
 
-        class Blade {
+        class Blade implements OnInit, OnDestroy, IBlade {
             title: string;
             maximized: boolean;
+            private $blade: any;
 
-            constructor(config: BladeConfig, el: ElementRef, loader: DynamicComponentLoader) {
+            constructor(private breadcrumbService: BreadcrumbService, config: BladeConfig, loader: DynamicComponentLoader, el: ElementRef) {
 
                 this.title = config.title
                 this.maximized = false
@@ -34,6 +38,8 @@ export class BladeFactory {
                     .then(m => {
                         loader.loadIntoLocation(config.provide(m), el, 'content');
                     });
+
+                this.$blade = $(el.nativeElement).children('.blade');
             }
 
             maximize() {
@@ -42,6 +48,19 @@ export class BladeFactory {
 
             minimize() {
                 this.maximized = false;
+            }
+
+            ngOnInit() {
+                this.breadcrumbService.addItem(this);
+            }
+
+            ngOnDestroy() {
+                this.breadcrumbService.removeItem(this);
+            }
+
+            focus() {
+                var scrollLeft = Math.round(this.$blade.offset().left - $('#main-content').offset().left);
+                $('#main-container').animate({ scrollLeft: scrollLeft + 'px' }, 250);
             }
         }
 

@@ -11,13 +11,11 @@ main {
 	.calc-remaining-heigth(@Height-main-header);
 }
 
-#main-content {
+#main-container {
 	.calc-remaining-width(@Width-main-navbar);
 	height: 100%;
 	overflow-y: hidden;
 	overflow-x: auto;
-	white-space: nowrap;
-	word-spacing: -4px;
 	float: left;
 
 	-ms-scrollbar-arrow-color: @Color-tertiary;
@@ -32,3 +30,12 @@ main {
 		background: @Color-tertiary;
 	}
 }
+
+#main-content {
+	height: 100%;
+	display: inline-block;
+	white-space: nowrap;
+	word-spacing: -4px;
+	min-width: 100%;
+}
+

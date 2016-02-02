@@ -12,6 +12,7 @@ var router_1 = require('angular2/router');
 var header_1 = require('./common/header/header');
 var menu_1 = require('./common/menu/menu');
 var menuService_1 = require('./common/menu/menuService');
+var breadcrumbService_1 = require('./common/breadcrumb/breadcrumbService');
 var appRouteConfig_1 = require('./appRouteConfig');
 var AppComponent = (function () {
     function AppComponent(menuService) {
@@ -19,12 +20,12 @@ var AppComponent = (function () {
         this.initMainMenuItems();
     }
     AppComponent.prototype.initMainMenuItems = function () {
-        this.menuService.addMenuItem({
+        this.menuService.addItem({
             icon: 'home-icon',
             title: 'Home',
             routeName: 'Parent'
         });
-        this.menuService.addMenuItem({
+        this.menuService.addItem({
             icon: 'home-icon',
             title: 'Home 2',
             routeName: 'Parent2'
@@ -36,7 +37,7 @@ var AppComponent = (function () {
             templateUrl: './templates/main.html',
             moduleId: module.id,
             directives: [router_1.ROUTER_DIRECTIVES, header_1.Header, menu_1.Menu],
-            providers: [menuService_1.MenuService]
+            providers: [menuService_1.MenuService, breadcrumbService_1.BreadcrumbService]
         }),
         router_1.RouteConfig(appRouteConfig_1.AppRouteConfig.getRoutes()), 
         __metadata('design:paramtypes', [menuService_1.MenuService])

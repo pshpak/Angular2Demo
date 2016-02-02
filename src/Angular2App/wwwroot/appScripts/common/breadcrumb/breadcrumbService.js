@@ -8,20 +8,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-var breadcrumb_1 = require('../breadcrumb/breadcrumb');
-var Header = (function () {
-    function Header() {
+var BreadcrumbService = (function () {
+    function BreadcrumbService() {
+        this.blades = [];
     }
-    Header = __decorate([
-        core_1.Component({
-            selector: 'au-header',
-            templateUrl: './templates/header.html',
-            moduleId: module.id,
-            directives: [breadcrumb_1.Breadcrumb]
-        }), 
+    BreadcrumbService.prototype.addItem = function (item) {
+        if (!this.blades) {
+            this.blades = [];
+        }
+        this.blades.push(item);
+    };
+    BreadcrumbService.prototype.removeItem = function (item) {
+        if (!this.blades) {
+            return;
+        }
+        var index = this.blades.indexOf(item);
+        if (index < 0) {
+            return;
+        }
+        this.blades.splice(index, this.blades.length - index);
+    };
+    BreadcrumbService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], Header);
-    return Header;
+    ], BreadcrumbService);
+    return BreadcrumbService;
 })();
-exports.Header = Header;
-//# sourceMappingURL=header.js.map
+exports.BreadcrumbService = BreadcrumbService;
+//# sourceMappingURL=breadcrumbService.js.map

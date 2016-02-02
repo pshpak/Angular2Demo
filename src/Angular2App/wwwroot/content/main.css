@@ -14,24 +14,29 @@ main {
   height: -webkit-calc(100% -  50px);
   height: calc(100% -  50px);
 }
-#main-content {
+#main-container {
   width: -moz-calc(100% -  60px);
   width: -webkit-calc(100% -  60px);
   width: calc(100% -  60px);
   height: 100%;
   overflow-y: hidden;
   overflow-x: auto;
-  white-space: nowrap;
-  word-spacing: -4px;
   float: left;
   -ms-scrollbar-arrow-color: #a9a9a9;
   -ms-scrollbar-face-color: #a9a9a9;
   -ms-scrollbar-shadow-color: #a9a9a9;
   -ms-scrollbar-track-color: #e6e6e5;
 }
-#main-content::-webkit-scrollbar-track-piece {
+#main-container::-webkit-scrollbar-track-piece {
   background: #e6e6e5;
 }
-#main-content::-webkit-scrollbar-thumb {
+#main-container::-webkit-scrollbar-thumb {
   background: #a9a9a9;
+}
+#main-content {
+  height: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  word-spacing: -4px;
+  min-width: 100%;
 }

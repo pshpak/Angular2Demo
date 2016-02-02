@@ -9,7 +9,7 @@ export class MenuService {
         this.menuItems = [];
     }
 
-    addMenuItem(item: MenuItem) {
+    addItem(item: MenuItem) {
         if (!this.menuItems) {
             this.menuItems = [];
         }
