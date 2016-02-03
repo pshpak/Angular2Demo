@@ -22,5 +22,17 @@
   {
     "outputFile": "wwwroot/content/blade.css",
     "inputFile": "wwwroot/content/blade.less"
+  },
+  {
+    "outputFile": "wwwroot/content/variables.css",
+    "inputFile": "wwwroot/content/variables.less"
+  },
+  {
+    "outputFile": "wwwroot/content/buttons.css",
+    "inputFile": "wwwroot/content/buttons.less"
+  },
+  {
+    "outputFile": "wwwroot/content/inputs.css",
+    "inputFile": "wwwroot/content/inputs.less"
   }
 ]

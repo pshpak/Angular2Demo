@@ -1,0 +1,186 @@
+﻿<div class="blade-static">
+	<div class="container">
+		<h2>Blade with Header and Footer</h2>
+	</div>
+</div>
+
+<div class="blade-inner has-footer">
+	<!--make sure to add class "has-footer"-->
+	<div class="container">
+
+		<div class="inputs">
+
+			<!--Text Input-->
+			<div class="form-group">
+				<label for="InputText">Text input</label>
+				<input type="text"
+					   id="InputText"
+					   name="InputText"
+					   value="Input" />
+			</div>
+
+			<div class="form-group">
+				<label for="InputTextDisabled">Text input disabled</label>
+				<input type="text"
+					   id="InputTextDisabled"
+					   name="InputTextDisabled"
+					   value="Input disabled"
+					   disabled />
+			</div>
+
+			<!--Date Picker-->
+			<div class="form-group">
+				<label for="DatePicker">Date picker</label>
+				<input kendo-date-picker ng-model="dateString"
+					   k-ng-model="dateObject"
+					   id="DatePicker"
+					   name="DatePicker"
+					   placeholder="mm/dd/yyyy" />
+			</div>
+
+			<!--Dropdown List-->
+			<div class="form-group">
+				<label for="Dropdown">Dropdown list</label>
+				<select kendo-drop-down-list
+						k-data-text-field="'text'"
+						k-data-value-field="'value'"
+						k-data-source="vm.data"></select>
+			</div>
+
+			<!--Checkbox-->
+			<div class="form-group">
+				<div class="checkbox">
+					<input type="checkbox"
+						   value="None"
+						   id="CheckBox"
+						   name="CheckBox" />
+					<label for="CheckBox">
+						<span>Check box</span>
+					</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="checkbox">
+					<input type="checkbox"
+						   value="None"
+						   id="CheckBoxDisabled"
+						   name="CheckBoxDisabled"
+						   disabled />
+					<label for="CheckBoxDisabled">
+						<span>Check box disabled</span>
+					</label>
+				</div>
+			</div>
+
+			<!--Radio Button-->
+			<div class="form-group">
+				<div class="radio">
+					<input type="radio"
+						   value="None"
+						   id="Radio1"
+						   name="Radios" />
+					<label for="Radio1">
+						<span>Radio button</span>
+					</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="radio">
+					<input type="radio"
+						   value="None"
+						   id="Radio2"
+						   name="Radios" />
+					<label for="Radio2">
+						<span>Radio button</span>
+					</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="radio">
+					<input type="radio"
+						   value="None"
+						   id="RadioDisabled"
+						   name="RadioDisabled"
+						   disabled />
+					<label for="RadioDisabled">
+						<span>Radio button disabled</span>
+					</label>
+				</div>
+			</div>
+
+			<!--Toggle Switch-->
+			<div class="toggle-switch-container">
+
+				<div class="form-group">
+					<div class="toggle-switch">
+						<input type="checkbox"
+							   id="Switch1" />
+						<label for="Switch1">
+							<span></span>
+						</label>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="toggle-switch">
+						<input type="checkbox"
+							   id="Switch2" />
+						<label for="Switch2">
+							<span></span>
+							Toggle switch with label
+						</label>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="toggle-switch">
+						<input type="checkbox"
+							   id="Switch3"
+							   disabled="disabled" />
+						<label for="Switch3">
+							<span></span>
+							Toggle switch disabled
+						</label>
+					</div>
+				</div>
+
+			</div>
+
+			<!--Go to File Upload-->
+			<div class="form-group">
+				<input type="button" class="btn btn-primary" value="Go to File Upload" ng-click="vm.goToFileUpload()" />
+			</div>
+
+			<!--Tooltip-->
+			<p>
+				Tooltip
+				<span kendo-tooltip
+					  k-content="'This is a string literal.'"
+					  k-position="'right'"
+					  class="tooltip">
+				</span>
+			</p>
+
+			<p>
+				Tooltip
+				<span kendo-tooltip
+					  k-content="vm.toolTipText"
+					  k-position="'right'"
+					  class="tooltip">
+				</span>
+			</p>
+
+		</div>
+
+	</div>
+</div>
+
+<div class="blade-footer">
+	<div class="container">
+		<input type="button" class="btn btn-primary" value="Next" (click)="next()" />
+	</div>
+</div>
+

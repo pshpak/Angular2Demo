@@ -13,6 +13,7 @@ au-main-menu {
   background: #272727;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  padding-right: 2px;
   float: left;
 }
 au-main-menu ul {
@@ -32,6 +33,7 @@ au-main-menu .menu-item .menu-link {
   font-size: 9px;
   padding: 16px 0;
   position: relative;
+  width: 58px;
 }
 au-main-menu .menu-item .menu-link:hover,
 au-main-menu .menu-item .menu-link.__selected {

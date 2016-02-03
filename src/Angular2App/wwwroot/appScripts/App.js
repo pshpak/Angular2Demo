@@ -30,6 +30,11 @@ var AppComponent = (function () {
             title: 'Home 2',
             routeName: 'Parent2'
         });
+        this.menuService.addItem({
+            icon: 'fa fa-diamond',
+            title: 'Style Guide',
+            routeName: 'StyleGuide'
+        });
     };
     AppComponent = __decorate([
         core_1.Component({

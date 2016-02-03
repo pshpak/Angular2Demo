@@ -1,0 +1,60 @@
+﻿@import 'variables';
+
+/* Buttons */
+.btn {
+	border: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-family: inherit;
+	font-size: 12px;
+	height: 23px;
+	padding: 2px 22px 3px 22px;
+	min-width: 90px;
+	margin-right: 6px;
+
+	&.btn-primary {
+		background-color: @Color-primary;
+
+		&:hover				{background-color: @Color-primary-hover;}
+		&:active, &:focus	{background-color: @Color-primary-active;}
+		&:disabled:hover, &:disabled:active, &:disabled:focus {
+			background-color: @Color-primary;
+		}
+	}
+	&.btn-secondary {
+		background-color: @Color-secondary;
+
+		&:hover				{background-color: @Color-secondary-hover;}
+		&:active, &:focus	{background-color: @Color-secondary-active;}
+		&:disabled:hover, &:disabled:active, &:disabled:focus {
+			background-color: @Color-secondary;
+		}
+	}
+	&.btn-tertiary {
+		background-color: @Color-tertiary;
+
+		&:hover				{background-color: @Color-tertiary-hover;}
+		&:active, &:focus	{background-color: @Color-tertiary-active;}
+		&:disabled:hover, &:disabled:active, &:disabled:focus {
+			background-color: @Color-tertiary;
+		}
+	}
+}
+input[type=file],
+.k-button {
+	background-color: @Color-tertiary !important;
+	color: #fff;
+
+	&:hover, &.k-state-hover				{background-color: @Color-tertiary-hover !important;}
+	&:active, &:focus, &.k-state-active		{background-color: @Color-tertiary-active !important;}
+	&:disabled:hover, &:disabled:active, &:disabled:focus {
+		background-color: @Color-tertiary !important;
+	}
+}
+.k-button {
+	box-shadow: none !important;
+
+}
