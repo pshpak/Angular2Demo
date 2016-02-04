@@ -13,6 +13,8 @@ var paths = {
 };
 
 var libsToMove = [
+   paths.libInput + '/es6-shim/es6-shim.min.js',
+   paths.libInput + '/systemjs/dist/system-polyfills.js',
    paths.libInput + '/angular2/bundles/angular2-polyfills.js',
    paths.libInput + '/systemjs/dist/system.js',
    paths.libInput + '/jquery/dist/jquery.js',
