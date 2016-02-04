@@ -28,16 +28,6 @@ var AppRouteConfig = (function () {
                 })
             },
             {
-                path: '/Parent2/...',
-                name: 'Parent2',
-                component: BladeFactory_1.BladeFactory.getBlade({
-                    componentPath: basePath + 'helloWorld/ChildControl',
-                    provide: function (m) { return m.ChildControl; },
-                    title: 'Parent 2 Blade',
-                    routes: null
-                })
-            },
-            {
                 path: '/StyleGuide/...',
                 name: 'StyleGuide',
                 component: BladeFactory_1.BladeFactory.getBlade({
@@ -69,9 +59,9 @@ var AppRouteConfig = (function () {
                             path: '/Child3/...',
                             name: 'Child3',
                             component: BladeFactory_1.BladeFactory.getBlade({
-                                componentPath: basePath + 'styleGuide/StyleGuideChild1',
-                                provide: function (m) { return m.StyleGuideChild1; },
-                                title: 'Buttons',
+                                componentPath: basePath + 'styleGuide/StyleGuideChild3',
+                                provide: function (m) { return m.StyleGuideChild3; },
+                                title: 'Table',
                                 routes: null
                             })
                         },
@@ -79,9 +69,9 @@ var AppRouteConfig = (function () {
                             path: '/Child4/...',
                             name: 'Child4',
                             component: BladeFactory_1.BladeFactory.getBlade({
-                                componentPath: basePath + 'styleGuide/StyleGuideChild1',
-                                provide: function (m) { return m.StyleGuideChild1; },
-                                title: 'Buttons',
+                                componentPath: basePath + 'styleGuide/StyleGuideChild4',
+                                provide: function (m) { return m.StyleGuideChild4; },
+                                title: 'Grid',
                                 routes: null
                             })
                         },
@@ -89,12 +79,12 @@ var AppRouteConfig = (function () {
                             path: '/Child5/...',
                             name: 'Child5',
                             component: BladeFactory_1.BladeFactory.getBlade({
-                                componentPath: basePath + 'styleGuide/StyleGuideChild1',
-                                provide: function (m) { return m.StyleGuideChild1; },
-                                title: 'Buttons',
+                                componentPath: basePath + 'styleGuide/StyleGuideChild5',
+                                provide: function (m) { return m.StyleGuideChild5; },
+                                title: 'Wizard',
                                 routes: null
                             })
-                        },
+                        }
                     ]
                 })
             },

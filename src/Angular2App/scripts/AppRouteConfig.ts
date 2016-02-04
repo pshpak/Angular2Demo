@@ -28,16 +28,6 @@ export class AppRouteConfig {
                 })
             },
             {
-                path: '/Parent2/...',
-                name: 'Parent2',
-                component: BladeFactory.getBlade({
-                    componentPath: basePath + 'helloWorld/ChildControl',
-                    provide: m => m.ChildControl,
-                    title: 'Parent 2 Blade',
-                    routes: null
-                })
-            },
-            {
                 path: '/StyleGuide/...',
                 name: 'StyleGuide',
                 component: BladeFactory.getBlade({
@@ -69,9 +59,9 @@ export class AppRouteConfig {
                             path: '/Child3/...',
                             name: 'Child3',
                             component: BladeFactory.getBlade({
-                                componentPath: basePath + 'styleGuide/StyleGuideChild1',
-                                provide: m => m.StyleGuideChild1,
-                                title: 'Buttons',
+                                componentPath: basePath + 'styleGuide/StyleGuideChild3',
+                                provide: m => m.StyleGuideChild3,
+                                title: 'Table',
                                 routes: null
                             })
                         },
@@ -79,22 +69,23 @@ export class AppRouteConfig {
                             path: '/Child4/...',
                             name: 'Child4',
                             component: BladeFactory.getBlade({
-                                componentPath: basePath + 'styleGuide/StyleGuideChild1',
-                                provide: m => m.StyleGuideChild1,
-                                title: 'Buttons',
+                                componentPath: basePath + 'styleGuide/StyleGuideChild4',
+                                provide: m => m.StyleGuideChild4,
+                                title: 'Grid',
                                 routes: null
                             })
-                        },
+                        }
+                        ,
                         {
                             path: '/Child5/...',
                             name: 'Child5',
                             component: BladeFactory.getBlade({
-                                componentPath: basePath + 'styleGuide/StyleGuideChild1',
-                                provide: m => m.StyleGuideChild1,
-                                title: 'Buttons',
+                                componentPath: basePath + 'styleGuide/StyleGuideChild5',
+                                provide: m => m.StyleGuideChild5,
+                                title: 'Wizard',
                                 routes: null
                             })
-                        },
+                        }
                     ]
                 })
             },

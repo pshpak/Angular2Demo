@@ -30,7 +30,7 @@ var BladeFactory = (function () {
                     .then(function (m) {
                     loader.loadIntoLocation(config.provide(m), el, 'content');
                 });
-                this.$blade = $(el.nativeElement).children('.blade');
+                this.$bladeElement = $(el.nativeElement).children('.blade');
             }
             Blade.prototype.maximize = function () {
                 this.maximized = true;
@@ -45,7 +45,7 @@ var BladeFactory = (function () {
                 this.breadcrumbService.removeItem(this);
             };
             Blade.prototype.focus = function () {
-                var scrollLeft = Math.round(this.$blade.offset().left - $('#main-content').offset().left);
+                var scrollLeft = Math.round(this.$bladeElement.offset().left - $('#main-content').offset().left);
                 $('#main-container').animate({ scrollLeft: scrollLeft + 'px' }, 250);
             };
             Blade = __decorate([

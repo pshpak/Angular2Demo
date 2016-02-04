@@ -34,5 +34,9 @@
   {
     "outputFile": "wwwroot/content/inputs.css",
     "inputFile": "wwwroot/content/inputs.less"
+  },
+  {
+    "outputFile": "wwwroot/content/table.css",
+    "inputFile": "wwwroot/content/table.less"
   }
 ]

@@ -26,7 +26,7 @@ export class BladeFactory {
         class Blade implements OnInit, OnDestroy, IBlade {
             title: string;
             maximized: boolean;
-            private $blade: any;
+            private $bladeElement: any;
 
             constructor(private breadcrumbService: BreadcrumbService, config: BladeConfig, loader: DynamicComponentLoader, el: ElementRef) {
 
@@ -38,7 +38,7 @@ export class BladeFactory {
                         loader.loadIntoLocation(config.provide(m), el, 'content');
                     });
 
-                this.$blade = $(el.nativeElement).children('.blade');
+                this.$bladeElement = $(el.nativeElement).children('.blade');
             }
 
             maximize() {
@@ -58,7 +58,7 @@ export class BladeFactory {
             }
 
             focus() {
-                var scrollLeft = Math.round(this.$blade.offset().left - $('#main-content').offset().left);
+                var scrollLeft = Math.round(this.$bladeElement.offset().left - $('#main-content').offset().left);
                 $('#main-container').animate({ scrollLeft: scrollLeft + 'px' }, 250);
             }
         }

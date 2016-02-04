@@ -1,0 +1,14 @@
+﻿<div class="blade-inner">
+	<div class="container">
+		<div class="wizard">
+			<div class="wizard-item" *ngFor="#item of items" [class.current]="item.current" [class.complete]="item.complete">
+				<div class="counter"></div>
+				<div class="title">
+					<p>{{ item.title }}</p>
+					<p>{{ item.description }}</p>
+				</div>
+				<span class="status" [class.complete]="item.complete"></span>
+			</div>
+		</div>
+	</div>
+</div>

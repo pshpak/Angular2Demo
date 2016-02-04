@@ -1,0 +1,33 @@
+﻿<div class="blade-inner">
+	<table class="table-striped">
+		<thead>
+			<tr>
+				<th>Test of Details</th>
+				<th>Activate</th>
+			</tr>
+		</thead>
+		<tbody id="MyTableBody">
+			<tr *ngFor="#item  of data; #index = index">
+				<td>
+					{{item.title}}
+					<span class="tooltip">
+						   <!--kendo-tooltip
+						  k-content="item.tooltip"
+						  k-position="'right'"
+						  class="tooltip">-->
+					</span>
+				</td>
+				<td>
+					<div class="checkbox">
+						<input type="checkbox"
+							   value="None"
+							   [id]="'CheckBox-' + index"
+							   [name]="'CheckBox-' + index"
+							   [(ngModel)]="item.isActivate" />
+						<label [attr.for]="'CheckBox-' + index"></label>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

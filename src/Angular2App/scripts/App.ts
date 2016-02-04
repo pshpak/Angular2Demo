@@ -27,11 +27,6 @@ export class AppComponent {
             routeName: 'Parent'
         });
         this.menuService.addItem({
-            icon: 'home-icon',
-            title: 'Home 2',
-            routeName: 'Parent2'
-        });
-        this.menuService.addItem({
             icon: 'fa fa-diamond',
             title: 'Style Guide',
             routeName: 'StyleGuide'
