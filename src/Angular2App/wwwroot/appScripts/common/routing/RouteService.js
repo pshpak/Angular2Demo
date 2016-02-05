@@ -15,6 +15,7 @@ var RouteService = (function () {
         this.router = router;
         this.routeChangedEvent = new core_1.EventEmitter();
         router.subscribe(function (value) {
+            _this.lastPath = value;
             _this.routeChangedEvent.emit(value);
         });
     }

@@ -24,7 +24,6 @@ export class Menu implements OnDestroy {
         this.currentItem = null;
 
         this.routeChangedSubscription = this.routeService.routeChangedEvent
-            .distinctUntilChanged()
             .map((path) => {
                 if (!path) {
                     return null;
@@ -36,7 +35,9 @@ export class Menu implements OnDestroy {
 
                 return pathParts[0];
             })
+            .distinctUntilChanged()
             .filter((rootPathPart) => rootPathPart != this.currentItem)
+            .distinctUntilChanged()
             .subscribe((rootPathPart) => {
                 this.currentItem = rootPathPart;
             });

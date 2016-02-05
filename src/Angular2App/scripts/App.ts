@@ -17,7 +17,7 @@ import {RouteService} from './common/routing/RouteService';
 @RouteConfig(AppRouteConfig.getRoutes())
 
 export class AppComponent {
-    constructor(private menuService: MenuService) {
+    constructor(private menuService: MenuService, private routeService: RouteService) {
         this.initMainMenuItems();
     }
 

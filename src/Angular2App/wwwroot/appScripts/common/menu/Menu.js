@@ -22,7 +22,6 @@ var Menu = (function () {
         this.menuItems = menuService.menuItems;
         this.currentItem = null;
         this.routeChangedSubscription = this.routeService.routeChangedEvent
-            .distinctUntilChanged()
             .map(function (path) {
             if (!path) {
                 return null;
@@ -33,9 +32,10 @@ var Menu = (function () {
             }
             return pathParts[0];
         })
+            .distinctUntilChanged()
             .filter(function (rootPathPart) { return rootPathPart != _this.currentItem; })
+            .distinctUntilChanged()
             .subscribe(function (rootPathPart) {
-            console.log("Here");
             _this.currentItem = rootPathPart;
         });
     }

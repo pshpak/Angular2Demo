@@ -9,72 +9,66 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
+var RouteService_1 = require('../common/routing/RouteService');
+require('rxjs/add/operator/distinctUntilChanged');
+require('rxjs/add/operator/filter');
+require('rxjs/add/operator/map');
 var StyleGuide = (function () {
-    function StyleGuide(router) {
-        this.router = router;
-        var self = this;
-        self.items = [
+    function StyleGuide(routeService) {
+        var _this = this;
+        this.routeService = routeService;
+        this.items = [
             {
                 title: "Buttons",
                 description: "This is an optional description",
-                current: false,
-                executeMethod: function () {
-                    self.openChild(0, 'Child1');
-                },
-                canExecuteMethod: function () { return true; }
+                path: 'Child1'
             },
             {
                 title: "Inputs",
-                current: false,
-                executeMethod: function () {
-                    self.openChild(1, 'Child2');
-                },
-                canExecuteMethod: function () { return true; }
+                path: 'Child2'
             },
             {
                 title: "Table",
-                current: false,
-                executeMethod: function () {
-                    self.openChild(2, 'Child3');
-                },
-                canExecuteMethod: function () { return true; }
+                path: 'Child3'
             },
             {
                 title: "Grid",
-                current: false,
-                executeMethod: function () {
-                    self.openChild(3, 'Child4');
-                },
-                canExecuteMethod: function () { return true; }
+                path: 'Child4'
             },
             {
                 title: "Wizard",
-                current: false,
-                executeMethod: function () {
-                    self.openChild(4, 'Child5');
-                },
-                canExecuteMethod: function () { return true; }
+                path: 'Child5'
             }
         ];
+        this.currentPath = this.getChildPath(this.routeService.lastPath);
+        this.routeChangedSubscription = this.routeService.routeChangedEvent
+            .map(function (path) { return _this.getChildPath(path); })
+            .filter(function (childPath) { return childPath != _this.currentPath; })
+            .distinctUntilChanged()
+            .subscribe(function (childPath) {
+            _this.currentPath = childPath;
+        });
     }
-    StyleGuide.prototype.openChild = function (curr, state) {
-        this.setCurrent(curr);
-        this.router.navigate(['./' + state]);
+    StyleGuide.prototype.getChildPath = function (path) {
+        if (!path) {
+            return null;
+        }
+        var pathParts = path.split('/');
+        if (pathParts.length < 2) {
+            return null;
+        }
+        return pathParts[1];
     };
-    StyleGuide.prototype.setCurrent = function (n) {
-        for (var i = 0; i < this.items.length; i++) {
-            this.items[i].current = false;
-        }
-        if (n <= this.items.length) {
-            this.items[n].current = true;
-        }
+    StyleGuide.prototype.ngOnDestroy = function () {
+        this.routeChangedSubscription.unsubscribe();
     };
     StyleGuide = __decorate([
         core_1.Component({
             selector: 'au-style-guide',
             templateUrl: '/templates/styleGuide/styleGuide.html',
+            directives: [router_1.ROUTER_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [router_1.Router])
+        __metadata('design:paramtypes', [RouteService_1.RouteService])
     ], StyleGuide);
     return StyleGuide;
 })();

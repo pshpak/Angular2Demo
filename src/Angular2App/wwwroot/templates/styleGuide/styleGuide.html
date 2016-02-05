@@ -1,7 +1,7 @@
 ﻿<div class="blade-inner">
 	<div class="container">
 		<div class="blade-nav">
-			<div class="blade-nav-item" *ngFor="#item of items" [class.current]="item.current" (click)="item.executeMethod()">
+			<div class="blade-nav-item" *ngFor="#item of items" [class.current]="item.path == currentPath" [routerLink]="['./' + item.path]">
 				<div class="counter"></div>
 				<div class="title">
 					<p>{{ item.title }}</p>

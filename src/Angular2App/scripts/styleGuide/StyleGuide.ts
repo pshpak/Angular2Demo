@@ -1,73 +1,70 @@
-﻿import {Component} from 'angular2/core';
-import {Router} from 'angular2/router';
+﻿import {Component, OnDestroy} from 'angular2/core';
+import {ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouteService} from '../common/routing/RouteService';
+import {Subscription} from 'rxjs/Subscription';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
 
 @Component({
     selector: 'au-style-guide',
     templateUrl: '/templates/styleGuide/styleGuide.html',
+    directives: [ROUTER_DIRECTIVES]
 })
 
-export class StyleGuide {
+export class StyleGuide implements OnDestroy {
     items: any[];
+    currentPath: string;
+    private routeChangedSubscription: Subscription<string>;
 
-    constructor(private router: Router) {
-        var self = this;
-
-        self.items = [
+    constructor(private routeService: RouteService) {
+        this.items = [
             {
                 title: "Buttons",
                 description: "This is an optional description",
-                current: false,
-                executeMethod() {
-                    self.openChild(0, 'Child1');
-                },
-                canExecuteMethod() { return true; }
+                path: 'Child1'
             },
             {
                 title: "Inputs",
-                current: false,
-                executeMethod() {
-                    self.openChild(1, 'Child2');
-                },
-                canExecuteMethod() { return true; }
+                path: 'Child2'
             },
             {
                 title: "Table",
-                current: false,
-                executeMethod() {
-                    self.openChild(2, 'Child3');
-                },
-                canExecuteMethod() { return true; }
+                path: 'Child3'
             },
             {
                 title: "Grid",
-                current: false,
-                executeMethod() {
-                    self.openChild(3, 'Child4');
-                },
-                canExecuteMethod() { return true; }
+                path: 'Child4'
+
             },
             {
                 title: "Wizard",
-                current: false,
-                executeMethod() {
-                    self.openChild(4, 'Child5');
-                },
-                canExecuteMethod() { return true; }
+                path: 'Child5'
             }
         ];
+        this.currentPath = this.getChildPath(this.routeService.lastPath);
+        this.routeChangedSubscription = this.routeService.routeChangedEvent
+            .map((path) => this.getChildPath(path))
+            .filter((childPath) => childPath != this.currentPath)
+            .distinctUntilChanged()
+            .subscribe((childPath) => {
+                this.currentPath = childPath;
+            });
     }
 
-    openChild(curr: number, state: string) {
-        this.setCurrent(curr);
-        this.router.navigate(['./' + state]);
+    private getChildPath(path: string) {
+        if (!path) {
+            return null;
+        }
+        var pathParts = path.split('/');
+        if (pathParts.length < 2) {
+            return null;
+        }
+
+        return pathParts[1];
     }
 
-    setCurrent(n: number) {
-        for (var i = 0; i < this.items.length; i++) {
-            this.items[i].current = false;
-        }
-        if (n <= this.items.length) {
-            this.items[n].current = true;
-        }
+    ngOnDestroy() {
+        this.routeChangedSubscription.unsubscribe();
     }
 }
