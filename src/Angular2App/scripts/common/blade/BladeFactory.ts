@@ -7,6 +7,7 @@ import {EmptyRoute} from '../routing/EmptyRoute';
 import {BreadcrumbService} from '../breadcrumb/BreadcrumbService';
 declare var $: any;
 
+
 export class BladeFactory {
 
     static getBlade(bladeConfiguration: BladeConfig) {
