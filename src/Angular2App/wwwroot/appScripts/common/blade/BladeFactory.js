@@ -42,6 +42,7 @@ var BladeFactory = (function () {
             };
             Blade.prototype.ngOnInit = function () {
                 this.breadcrumbService.addItem(this);
+                this.focus();
             };
             Blade.prototype.ngOnDestroy = function () {
                 this.breadcrumbService.removeItem(this);

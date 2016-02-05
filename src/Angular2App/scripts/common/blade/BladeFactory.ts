@@ -53,6 +53,7 @@ export class BladeFactory {
 
             ngOnInit() {
                 this.breadcrumbService.addItem(this);
+                this.focus();
             }
 
             ngOnDestroy() {
