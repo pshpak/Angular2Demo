@@ -1,25 +1,25 @@
-﻿import {EmptyRoute} from './common/EmptyRoute';
-import {BladeFactory} from './common/blade/BladeFactory';
-
-export class AppRouteConfig {
-    static getRoutes() {
+var EmptyRoute_1 = require('./EmptyRoute');
+var BladeFactory_1 = require('../blade/BladeFactory');
+var AppRouteConfig = (function () {
+    function AppRouteConfig() {
+    }
+    AppRouteConfig.getRoutes = function () {
         var basePath = '/appScripts/';
-
         return [
             {
                 path: '/Parent/...',
                 name: 'Parent',
-                component: BladeFactory.getBlade({
+                component: BladeFactory_1.BladeFactory.getBlade({
                     componentPath: basePath + 'helloWorld/ParentControl',
-                    provide: m => m.ParentControl,
+                    provide: function (m) { return m.ParentControl; },
                     title: "Parent",
                     routes: [
                         {
                             path: '/Child/...',
                             name: 'Child',
-                            component: BladeFactory.getBlade({
+                            component: BladeFactory_1.BladeFactory.getBlade({
                                 componentPath: basePath + 'helloWorld/ChildControl',
-                                provide: m => m.ChildControl,
+                                provide: function (m) { return m.ChildControl; },
                                 title: 'Child Blade',
                                 routes: null
                             })
@@ -30,17 +30,17 @@ export class AppRouteConfig {
             {
                 path: '/StyleGuide/...',
                 name: 'StyleGuide',
-                component: BladeFactory.getBlade({
+                component: BladeFactory_1.BladeFactory.getBlade({
                     componentPath: basePath + 'styleGuide/StyleGuide',
-                    provide: m => m.StyleGuide,
+                    provide: function (m) { return m.StyleGuide; },
                     title: 'Blade Navigation',
                     routes: [
                         {
                             path: '/Child1/...',
                             name: 'Child1',
-                            component: BladeFactory.getBlade({
+                            component: BladeFactory_1.BladeFactory.getBlade({
                                 componentPath: basePath + 'styleGuide/StyleGuideChild1',
-                                provide: m => m.StyleGuideChild1,
+                                provide: function (m) { return m.StyleGuideChild1; },
                                 title: 'Buttons',
                                 routes: null
                             })
@@ -48,9 +48,9 @@ export class AppRouteConfig {
                         {
                             path: '/Child2/...',
                             name: 'Child2',
-                            component: BladeFactory.getBlade({
+                            component: BladeFactory_1.BladeFactory.getBlade({
                                 componentPath: basePath + 'styleGuide/StyleGuideChild2',
-                                provide: m => m.StyleGuideChild2,
+                                provide: function (m) { return m.StyleGuideChild2; },
                                 title: 'Buttons',
                                 routes: null
                             })
@@ -58,9 +58,9 @@ export class AppRouteConfig {
                         {
                             path: '/Child3/...',
                             name: 'Child3',
-                            component: BladeFactory.getBlade({
+                            component: BladeFactory_1.BladeFactory.getBlade({
                                 componentPath: basePath + 'styleGuide/StyleGuideChild3',
-                                provide: m => m.StyleGuideChild3,
+                                provide: function (m) { return m.StyleGuideChild3; },
                                 title: 'Table',
                                 routes: null
                             })
@@ -68,20 +68,19 @@ export class AppRouteConfig {
                         {
                             path: '/Child4/...',
                             name: 'Child4',
-                            component: BladeFactory.getBlade({
+                            component: BladeFactory_1.BladeFactory.getBlade({
                                 componentPath: basePath + 'styleGuide/StyleGuideChild4',
-                                provide: m => m.StyleGuideChild4,
+                                provide: function (m) { return m.StyleGuideChild4; },
                                 title: 'Grid',
                                 routes: null
                             })
-                        }
-                        ,
+                        },
                         {
                             path: '/Child5/...',
                             name: 'Child5',
-                            component: BladeFactory.getBlade({
+                            component: BladeFactory_1.BladeFactory.getBlade({
                                 componentPath: basePath + 'styleGuide/StyleGuideChild5',
-                                provide: m => m.StyleGuideChild5,
+                                provide: function (m) { return m.StyleGuideChild5; },
                                 title: 'Wizard',
                                 routes: null
                             })
@@ -89,7 +88,10 @@ export class AppRouteConfig {
                     ]
                 })
             },
-            { path: '/', name: 'Default', component: EmptyRoute, useAsDefault: true }
+            { path: '/', name: 'Default', component: EmptyRoute_1.EmptyRoute, useAsDefault: true }
         ];
-    }
-}
+    };
+    return AppRouteConfig;
+})();
+exports.AppRouteConfig = AppRouteConfig;
+//# sourceMappingURL=AppRouteConfig.js.map

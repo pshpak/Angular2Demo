@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
 var BladeConfig_1 = require('./BladeConfig');
-var EmptyRoute_1 = require('../EmptyRoute');
+var EmptyRoute_1 = require('../routing/EmptyRoute');
 var BreadcrumbService_1 = require('../breadcrumb/BreadcrumbService');
 var BladeFactory = (function () {
     function BladeFactory() {

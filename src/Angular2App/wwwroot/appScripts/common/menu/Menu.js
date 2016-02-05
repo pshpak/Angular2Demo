@@ -10,36 +10,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
 var MenuService_1 = require('./MenuService');
+var RouteService_1 = require('../routing/RouteService');
+require('rxjs/add/operator/distinctUntilChanged');
+require('rxjs/add/operator/filter');
+require('rxjs/add/operator/map');
 var Menu = (function () {
-    function Menu(menuService, router) {
+    function Menu(menuService, routeService) {
         var _this = this;
         this.menuService = menuService;
-        this.router = router;
+        this.routeService = routeService;
         this.menuItems = menuService.menuItems;
-        this.currentItem = '';
-        router.subscribe(function (value) {
-            if (!value) {
-                _this.currentItem = null;
-                return;
+        this.currentItem = null;
+        this.routeChangedSubscription = this.routeService.routeChangedEvent
+            .distinctUntilChanged()
+            .map(function (path) {
+            if (!path) {
+                return null;
             }
-            var pathParts = value.split('/');
-            if (!pathParts || !pathParts.length) {
-                _this.currentItem = null;
-                return;
+            var pathParts = path.split('/');
+            if (pathParts.length == 0) {
+                return null;
             }
-            var root = pathParts[0];
-            if (_this.currentItem != root) {
-                _this.currentItem = root;
-            }
+            return pathParts[0];
+        })
+            .filter(function (rootPathPart) { return rootPathPart != _this.currentItem; })
+            .subscribe(function (rootPathPart) {
+            console.log("Here");
+            _this.currentItem = rootPathPart;
         });
     }
+    Menu.prototype.ngOnDestroy = function () {
+        this.routeChangedSubscription.unsubscribe();
+    };
     Menu = __decorate([
         core_1.Component({
             selector: 'au-main-menu',
             templateUrl: '/templates/common/menu/menu.html',
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [MenuService_1.MenuService, router_1.Router])
+        __metadata('design:paramtypes', [MenuService_1.MenuService, RouteService_1.RouteService])
     ], Menu);
     return Menu;
 })();

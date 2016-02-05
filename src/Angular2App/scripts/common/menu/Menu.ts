@@ -1,6 +1,11 @@
-﻿import {Component} from 'angular2/core';
+﻿import {Component, OnDestroy} from 'angular2/core';
 import {ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import {MenuService} from './MenuService';
+import {RouteService} from '../routing/RouteService';
+import {Subscription} from 'rxjs/Subscription';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
 
 @Component({
     selector: 'au-main-menu',
@@ -8,30 +13,37 @@ import {MenuService} from './MenuService';
     directives: [ROUTER_DIRECTIVES]
 })
 
-export class Menu {
+export class Menu implements OnDestroy {
     menuItems: any[];
     currentItem: string;
+    private routeChangedSubscription: Subscription<string>;
 
-    constructor(private menuService: MenuService, private router: Router) {
+
+    constructor(private menuService: MenuService, private routeService: RouteService) {
         this.menuItems = menuService.menuItems;
-        this.currentItem = '';
+        this.currentItem = null;
 
-        router.subscribe((value) => {
-            if (!value) {
-                this.currentItem = null;
-                return;
-            }
+        this.routeChangedSubscription = this.routeService.routeChangedEvent
+            .distinctUntilChanged()
+            .map((path) => {
+                if (!path) {
+                    return null;
+                }
+                var pathParts = path.split('/');
+                if (pathParts.length == 0) {
+                    return null;
+                }
 
-            var pathParts = value.split('/');
-            if (!pathParts || !pathParts.length) {
-                this.currentItem = null;
-                return;
-            }
+                return pathParts[0];
+            })
+            .filter((rootPathPart) => rootPathPart != this.currentItem)
+            .subscribe((rootPathPart) => {
+                console.log("Here");
+                this.currentItem = rootPathPart;
+            });
+    }
 
-            var root = pathParts[0];
-            if (this.currentItem != root) {
-                this.currentItem = root;
-            }
-        });
+    ngOnDestroy() {
+        this.routeChangedSubscription.unsubscribe();
     }
 }

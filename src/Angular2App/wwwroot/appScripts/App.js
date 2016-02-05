@@ -13,10 +13,12 @@ var Header_1 = require('./common/header/Header');
 var BreadcrumbService_1 = require('./common/breadcrumb/BreadcrumbService');
 var Menu_1 = require('./common/menu/Menu');
 var MenuService_1 = require('./common/menu/MenuService');
-var AppRouteConfig_1 = require('./AppRouteConfig');
+var AppRouteConfig_1 = require('./common/routing/AppRouteConfig');
+var RouteService_1 = require('./common/routing/RouteService');
 var AppComponent = (function () {
-    function AppComponent(menuService) {
+    function AppComponent(menuService, routeService) {
         this.menuService = menuService;
+        this.routeService = routeService;
         this.initMainMenuItems();
     }
     AppComponent.prototype.initMainMenuItems = function () {
@@ -36,10 +38,10 @@ var AppComponent = (function () {
             selector: 'au-app',
             templateUrl: '/templates/main.html',
             directives: [router_1.ROUTER_DIRECTIVES, Header_1.Header, Menu_1.Menu],
-            providers: [MenuService_1.MenuService, BreadcrumbService_1.BreadcrumbService]
+            providers: [MenuService_1.MenuService, BreadcrumbService_1.BreadcrumbService, RouteService_1.RouteService]
         }),
         router_1.RouteConfig(AppRouteConfig_1.AppRouteConfig.getRoutes()), 
-        __metadata('design:paramtypes', [MenuService_1.MenuService])
+        __metadata('design:paramtypes', [MenuService_1.MenuService, RouteService_1.RouteService])
     ], AppComponent);
     return AppComponent;
 })();
