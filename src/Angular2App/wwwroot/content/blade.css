@@ -12,10 +12,9 @@
   height: 100%;
   -webkit-box-shadow: -5px 0 5px -6px rgba(0, 0, 0, 0.1);
   box-shadow: -5px 0 5px -6px rgba(0, 0, 0, 0.1);
-  -webkit-transition: width 0.25s;
-  /* For Safari 3.1 to 6.0 */
+  -webkit-transition: width 0.5s;
   width: 420px;
-  transition: width 0.25s;
+  transition: width 0.5s;
 }
 .blade.blade-maximized {
   width: 100%;

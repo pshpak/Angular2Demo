@@ -33,9 +33,11 @@ var BladeFactory = (function () {
                 this.$bladeElement = $(el.nativeElement).children('.blade');
             }
             Blade.prototype.maximize = function () {
+                this.focus();
                 this.maximized = true;
             };
             Blade.prototype.minimize = function () {
+                this.focus();
                 this.maximized = false;
             };
             Blade.prototype.ngOnInit = function () {
@@ -46,7 +48,7 @@ var BladeFactory = (function () {
             };
             Blade.prototype.focus = function () {
                 var scrollLeft = Math.round(this.$bladeElement.offset().left - $('#main-content').offset().left);
-                $('#main-container').animate({ scrollLeft: scrollLeft + 'px' }, 250);
+                $('#main-container').animate({ scrollLeft: scrollLeft + 'px' }, 500);
             };
             Blade = __decorate([
                 core_1.Component({

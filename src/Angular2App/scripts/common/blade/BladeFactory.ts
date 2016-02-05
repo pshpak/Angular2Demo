@@ -42,10 +42,12 @@ export class BladeFactory {
             }
 
             maximize() {
+                this.focus();
                 this.maximized = true;
             }
 
             minimize() {
+                this.focus();
                 this.maximized = false;
             }
 
@@ -59,7 +61,7 @@ export class BladeFactory {
 
             focus() {
                 var scrollLeft = Math.round(this.$bladeElement.offset().left - $('#main-content').offset().left);
-                $('#main-container').animate({ scrollLeft: scrollLeft + 'px' }, 250);
+                $('#main-container').animate({ scrollLeft: scrollLeft + 'px' }, 500);
             }
         }
 
