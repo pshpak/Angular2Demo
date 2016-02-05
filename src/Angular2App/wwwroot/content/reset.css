@@ -3,6 +3,7 @@
 /*Typography Styles*/
 /*Data Management*/
 /*Images*/
+/* Sizes */
 * {
   margin: 0;
   outline: none;
@@ -29,4 +30,3 @@ body::selection,
 .btn::selection {
   background: none;
 }
-/*# sourceMappingURL=reset.css.map */

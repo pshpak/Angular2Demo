@@ -38,5 +38,17 @@
   {
     "outputFile": "wwwroot/content/table.css",
     "inputFile": "wwwroot/content/table.less"
+  },
+  {
+    "outputFile": "wwwroot/content/breadcrumb.css",
+    "inputFile": "wwwroot/content/breadcrumb.less"
+  },
+  {
+    "outputFile": "wwwroot/content/cosmetic.css",
+    "inputFile": "wwwroot/content/cosmetic.less"
+  },
+  {
+    "outputFile": "wwwroot/content/reset.css",
+    "inputFile": "wwwroot/content/reset.less"
   }
 ]
