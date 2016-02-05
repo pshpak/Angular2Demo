@@ -53,7 +53,9 @@ export class BladeFactory {
 
             ngOnInit() {
                 this.breadcrumbService.addItem(this);
-                this.focus();
+                if (this.maximized) {
+                    this.focus();
+                }
             }
 
             ngOnDestroy() {
