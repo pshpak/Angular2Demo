@@ -38,7 +38,6 @@ export class Menu implements OnDestroy {
             })
             .filter((rootPathPart) => rootPathPart != this.currentItem)
             .subscribe((rootPathPart) => {
-                console.log("Here");
                 this.currentItem = rootPathPart;
             });
     }
