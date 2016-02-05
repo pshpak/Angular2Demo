@@ -22,10 +22,10 @@ var BladeFactory = (function () {
         }
         bladeConfiguration.routes.push({ path: '/', name: 'Default', component: EmptyRoute_1.EmptyRoute, useAsDefault: true });
         var Blade = (function () {
-            function Blade(breadcrumbService, config, loader, el) {
+            function Blade(breadcrumbService, config, loader, el, routeParams) {
                 this.breadcrumbService = breadcrumbService;
                 this.title = config.title;
-                this.maximized = false;
+                this.maximized = !!(routeParams.get('maximized'));
                 System.import(config.componentPath)
                     .then(function (m) {
                     loader.loadIntoLocation(config.provide(m), el, 'content');
@@ -58,7 +58,7 @@ var BladeFactory = (function () {
                     providers: [core_1.provide(BladeConfig_1.BladeConfig, { useValue: bladeConfiguration })]
                 }),
                 router_1.RouteConfig(bladeConfiguration.routes), 
-                __metadata('design:paramtypes', [BreadcrumbService_1.BreadcrumbService, BladeConfig_1.BladeConfig, core_1.DynamicComponentLoader, core_1.ElementRef])
+                __metadata('design:paramtypes', [BreadcrumbService_1.BreadcrumbService, BladeConfig_1.BladeConfig, core_1.DynamicComponentLoader, core_1.ElementRef, router_1.RouteParams])
             ], Blade);
             return Blade;
         })();

@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../../typings/tsd.d.ts" />
 import {Component, DynamicComponentLoader, ElementRef, provide, OnInit, OnDestroy} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES, RouteParams } from 'angular2/router';
 import {IBlade } from './IBlade';
 import {BladeConfig} from './BladeConfig';
 import {EmptyRoute} from '../routing/EmptyRoute';
@@ -28,10 +28,10 @@ export class BladeFactory {
             maximized: boolean;
             private $bladeElement: any;
 
-            constructor(private breadcrumbService: BreadcrumbService, config: BladeConfig, loader: DynamicComponentLoader, el: ElementRef) {
+            constructor(private breadcrumbService: BreadcrumbService, config: BladeConfig, loader: DynamicComponentLoader, el: ElementRef, routeParams: RouteParams) {
 
                 this.title = config.title
-                this.maximized = false
+                this.maximized = !!(routeParams.get('maximized'));
 
                 System.import(config.componentPath)
                     .then(m => {
