@@ -1,8 +1,10 @@
-﻿<section class="blade" [ngClass]="{'blade-maximized': maximized}">
-	<header class="blade-head">
+﻿<section class="blade" [ngClass]="{'blade-maximized': maximized, 'blade-minimized': minimized}">
+	<header class="blade-head" [hidden]="minimized">
 		<section class="blade-nav">
 			<ul class="menu">
-				<li class="menu-item action __minimize" (click)="minimize()" *ngIf="maximized">
+				<li class="menu-item action __minimize" (click)="minimize()">
+				</li>
+				<li class="menu-item action __minimize" (click)="normalize()" *ngIf="maximized">
 				</li>
 				<li class="menu-item action __maximize" (click)="maximize()" *ngIf="!maximized">
 				</li>
@@ -16,8 +18,13 @@
 			</p>
 		</section>
 	</header>
-	<div class="blade-content">
+	<div class="blade-content" [hidden]="minimized">
 		<a #content></a>
 	</div>
+	<section class="action blade-minimized-content" [hidden]="!minimized" (click)="restore()">
+		<section class="blade-minimized-title">
+			{{title}}
+		</section>
+	</section>
 </section>
 <router-outlet></router-outlet>

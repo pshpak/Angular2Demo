@@ -26,11 +26,13 @@ export class BladeFactory {
         class Blade implements OnInit, OnDestroy, IBlade {
             title: string;
             maximized: boolean;
+            minimized: boolean;
             private $bladeElement: any;
 
             constructor(private breadcrumbService: BreadcrumbService, config: BladeConfig, loader: DynamicComponentLoader, el: ElementRef, routeParams: RouteParams) {
 
                 this.title = config.title
+                this.minimized = false;
                 this.maximized = !!(routeParams.get('maximized'));
 
                 System.import(config.componentPath)
@@ -42,14 +44,24 @@ export class BladeFactory {
             }
 
             maximize() {
-                this.focus();
+                //this.focus();
                 this.maximized = true;
+            }                     
+
+            normalize() {
+                //this.focus();
+                this.maximized = false;
             }
 
             minimize() {
-                this.focus();
-                this.maximized = false;
+                //this.focus();
+                this.minimized = true;
             }
+            
+            restore() {
+                //this.focus();
+                this.minimized = false;
+            }   
 
             ngOnInit() {
                 this.breadcrumbService.addItem(this);

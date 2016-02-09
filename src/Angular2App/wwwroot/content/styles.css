@@ -471,6 +471,21 @@ main {
 .blade.blade-maximized {
   width: 100%;
 }
+.blade.blade-minimized {
+  width: 40px;
+  background: #272727;
+}
+.blade.blade-minimized .blade-minimized-content {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding-top: 50px;
+}
+.blade.blade-minimized .blade-minimized-content .blade-minimized-title {
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
 .blade *::-webkit-scrollbar-track-piece {
   background: #e6e6e5;
 }

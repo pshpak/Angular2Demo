@@ -17,6 +17,24 @@
 		width: 100%;
 	}
 
+	&.blade-minimized {
+		width: 40px;
+		background: @Color-blade-top-background;
+
+		.blade-minimized-content {
+			box-sizing: border-box;
+			height: 100%;
+			width: 100%;
+			padding-top: 50px;
+
+			.blade-minimized-title {
+				-ms-transform: rotate(90deg);
+				-webkit-transform: rotate(90deg);
+				transform: rotate(90deg);
+			}
+		}
+	}
+
 	*::-webkit-scrollbar-track-piece {
 		background: @Color-background-widget;
 	}

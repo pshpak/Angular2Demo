@@ -25,6 +25,7 @@ var BladeFactory = (function () {
             function Blade(breadcrumbService, config, loader, el, routeParams) {
                 this.breadcrumbService = breadcrumbService;
                 this.title = config.title;
+                this.minimized = false;
                 this.maximized = !!(routeParams.get('maximized'));
                 System.import(config.componentPath)
                     .then(function (m) {
@@ -33,12 +34,20 @@ var BladeFactory = (function () {
                 this.$bladeElement = $(el.nativeElement).children('.blade');
             }
             Blade.prototype.maximize = function () {
-                this.focus();
+                //this.focus();
                 this.maximized = true;
             };
-            Blade.prototype.minimize = function () {
-                this.focus();
+            Blade.prototype.normalize = function () {
+                //this.focus();
                 this.maximized = false;
+            };
+            Blade.prototype.minimize = function () {
+                //this.focus();
+                this.minimized = true;
+            };
+            Blade.prototype.restore = function () {
+                //this.focus();
+                this.minimized = false;
             };
             Blade.prototype.ngOnInit = function () {
                 this.breadcrumbService.addItem(this);
